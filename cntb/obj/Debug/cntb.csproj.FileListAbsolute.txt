@@ -1,0 +1,2 @@
+C:\Users\Munyeshaka\project\BUI\cntb\cntb\bin\Debug\cntb.exe.config
+C:\Users\Munyeshaka\project\BIU\C#\cntb\cntb\bin\Debug\cntb.exe.config
