@@ -1,0 +1,11 @@
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\bin\Debug\View.dll
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\bin\Debug\View.pdb
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\bin\Debug\Controller.dll
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\bin\Debug\Model.dll
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\bin\Debug\Controller.pdb
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\bin\Debug\Model.pdb
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\obj\Debug\View.ucResident.resources
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\obj\Debug\View.csproj.GenerateResource.Cache
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\obj\Debug\View.dll
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\obj\Debug\View.pdb

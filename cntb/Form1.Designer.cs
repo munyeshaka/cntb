@@ -3,14 +3,14 @@
     partial class Form1
     {
         /// <summary>
-        /// Variable nécessaire au concepteur.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Nettoyage des ressources utilisées.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,28 +20,76 @@
             base.Dispose(disposing);
         }
 
-        #region Code généré par le Concepteur Windows Form
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-        /// le contenu de cette méthode avec l'éditeur de code.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.HomePanel = new System.Windows.Forms.Panel();
+            this.donneessDeBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.residentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // HomePanel
+            // 
+            this.HomePanel.Location = new System.Drawing.Point(12, 27);
+            this.HomePanel.Name = "HomePanel";
+            this.HomePanel.Size = new System.Drawing.Size(1117, 551);
+            this.HomePanel.TabIndex = 1;
+            // 
+            // donneessDeBaseToolStripMenuItem
+            // 
+            this.donneessDeBaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.residentToolStripMenuItem});
+            this.donneessDeBaseToolStripMenuItem.Name = "donneessDeBaseToolStripMenuItem";
+            this.donneessDeBaseToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.donneessDeBaseToolStripMenuItem.Text = "Donneess de base";
+            // 
+            // residentToolStripMenuItem
+            // 
+            this.residentToolStripMenuItem.Name = "residentToolStripMenuItem";
+            this.residentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.residentToolStripMenuItem.Text = "Resident";
+            this.residentToolStripMenuItem.Click += new System.EventHandler(this.residentToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.donneessDeBaseToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1141, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 541);
+            this.ClientSize = new System.Drawing.Size(1141, 583);
+            this.Controls.Add(this.HomePanel);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "CNTB";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel HomePanel;
+        private System.Windows.Forms.ToolStripMenuItem donneessDeBaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem residentToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+
     }
 }
-

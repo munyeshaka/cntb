@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Personne
+    public class Personne
     {
         string nom, prenom, genre, etatCivil, lieuNaissance;
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using View;
 
 namespace cntb
 {
@@ -15,6 +16,13 @@ namespace cntb
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void residentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucResident resident = new ucResident();
+            this.HomePanel.Controls.Clear();
+            this.HomePanel.Controls.Add(resident);
         }
     }
 }

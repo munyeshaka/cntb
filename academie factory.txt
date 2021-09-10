@@ -1,0 +1,347 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Collections;
+using Modele;
+
+namespace Controller
+{
+    public class Factory
+    {
+        public static ArrayList listProf = new ArrayList();
+        public static ArrayList listEtudiant = new ArrayList();
+        public static ArrayList listCours = new ArrayList();
+        public static ArrayList listInscritiption = new ArrayList();
+
+        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=biu;Integrated Security=True");
+
+
+        //=======================AFFICHER PROF==============
+
+        public static ArrayList getProf()
+        {
+            ArrayList profs = new ArrayList();
+            Prof p = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Prof";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                p = new Prof();
+                p.Matricule = reader["Matricule_Prof"].ToString();
+                p.Nom = reader["Nom_Prof"].ToString();
+                p.Adresse = reader["Adresse_Prof"].ToString();
+                p.Genre = reader["Genre_Prof"].ToString();
+                p.Nationalite = reader["Nationalite_Prof"].ToString();
+                p.EtatCivil = reader["EtatCivil_Prof"].ToString();
+                p.Telephone = reader["Telephone_Prof"].ToString();
+                p.Email = reader["Email_Prof"].ToString();
+                p.Grade = reader["Grade_Prof"].ToString();
+                p.TauxHoraire = reader["TauxHoraire_Prof"].ToString();
+
+                profs.Add(p);
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return profs;
+
+        }
+
+        //=======================INSERT PROF==============
+       
+        public static int insertProf(Prof p)
+        {
+            
+                if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+                SqlCommand commande = new SqlCommand();
+                commande.Connection = conn;
+                commande.CommandText = "insert into dbo.prof (Matricule_Prof, Nom_Prof, Adresse_Prof, Genre_Prof, Nationalite_Prof, EtatCivil_Prof, Grade_Prof, TauxHoraire_Prof, Telephone_Prof, Email_Prof)  values (@matri,@no,@adre,@g,@na,@eta,@gra,@tau,@te,@e)";
+                commande.Parameters.Add(new SqlParameter("@matri", p.Matricule));
+                commande.Parameters.Add(new SqlParameter("@no", p.Nom));
+                commande.Parameters.Add(new SqlParameter("@adre", p.Adresse));
+                commande.Parameters.Add(new SqlParameter("@g", p.Genre));
+                commande.Parameters.Add(new SqlParameter("@na", p.Nationalite));
+                commande.Parameters.Add(new SqlParameter("@eta", p.EtatCivil));
+                commande.Parameters.Add(new SqlParameter("@gra", p.Grade));
+                commande.Parameters.Add(new SqlParameter("@tau", p.TauxHoraire));
+                commande.Parameters.Add(new SqlParameter("@te", p.Telephone));
+                commande.Parameters.Add(new SqlParameter("@e", p.Email));
+                
+                int n = commande.ExecuteNonQuery();
+
+                return n;
+            }
+
+        
+            //=======================MODIFIER PROF==============
+
+        public static int ModifierProf(Prof p, string matric)
+        {
+            
+                if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+                SqlCommand commande = new SqlCommand();
+                commande.Connection = conn;
+                commande.CommandText = "update dbo.prof set Matricule_Prof = @matri, Nom_Prof = @no, Adresse_Prof = @adre, Genre_Prof = @g, Nationalite_Prof = @na, EtatCivil_Prof = @eta, Grade_Prof = @gra, TauxHoraire_Prof = @tau, Telephone_Prof = @te, Email_Prof = @e)  values (@matri,@no,@adre,@g,@na,@eta,@gra,@tau,@te,@e";
+                commande.Parameters.Add(new SqlParameter("@matri", matric));
+                commande.Parameters.Add(new SqlParameter("@no", p.Nom));
+                commande.Parameters.Add(new SqlParameter("@adre", p.Adresse));
+                commande.Parameters.Add(new SqlParameter("@g", p.Genre));
+                commande.Parameters.Add(new SqlParameter("@na", p.Nationalite));
+                commande.Parameters.Add(new SqlParameter("@eta", p.EtatCivil));
+                commande.Parameters.Add(new SqlParameter("@gra", p.Grade));
+                commande.Parameters.Add(new SqlParameter("@tau", p.TauxHoraire));
+                commande.Parameters.Add(new SqlParameter("@te", p.Telephone));
+                commande.Parameters.Add(new SqlParameter("@e", p.Email));
+                
+                int n = commande.ExecuteNonQuery();
+
+                return n;
+            }
+
+            //=======================RECHERCHE PROF==============
+
+        public static Prof getProfRechercheByMatri(string matriprof)
+        {
+            Prof p = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Prof";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                p = new Prof();
+                p.Matricule = reader["Matricule_Prof"].ToString();
+                p.Nom = reader["Nom_Prof"].ToString();
+                p.Adresse = reader["Adresse_Prof"].ToString();
+                p.Genre = reader["Genre_Prof"].ToString();
+                p.Nationalite = reader["Nationalite_Prof"].ToString();
+                p.EtatCivil = reader["EtatCivil_Prof"].ToString();
+                p.Telephone = reader["Telephone_Prof"].ToString();
+                p.Email = reader["Email_Prof"].ToString();
+                p.Grade = reader["Grade_Prof"].ToString();
+                p.TauxHoraire = reader["TauxHoraire_Prof"].ToString();
+
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return p;
+
+        }
+
+        //=======================AFFICHER COURS==============
+
+        public static ArrayList getCours()
+        {
+            ArrayList cours = new ArrayList();
+            Cours c = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Cours, dbo.Prof where Cours.Matricule_Prof = Prof.Matricule_Prof";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                c = new Cours();
+                c.CodeC = reader["code_Cours"].ToString();
+                c.Intitule = reader["intitule_Cours"].ToString();
+                c.Vh = reader["vh_Cours"].ToString();
+                c.Prof = new Prof();
+                c.Prof.Matricule = reader["Matricule_Prof"].ToString();
+                c.Prof.Nom = reader["Nom_Prof"].ToString();
+                c.Prof.Grade = reader["Grade_Prof"].ToString();
+
+
+                cours.Add(c);
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return cours;
+
+        }
+
+        //=======================INSERT COURS==============
+        public static int insertCours(Cours c)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "insert into dbo.Cours (code_Cours, intitule_Cours, vh_Cours, Matricule_Prof)  values (@cod,@inti,@v,@profe)";
+            commande.Parameters.Add(new SqlParameter("@cod", c.CodeC));
+            commande.Parameters.Add(new SqlParameter("@inti", c.Intitule));
+            commande.Parameters.Add(new SqlParameter("@v", c.Vh));
+            commande.Parameters.Add(new SqlParameter("@profe", c.Prof.Matricule));
+
+            int n = commande.ExecuteNonQuery();
+
+            return n;
+        }
+        //=======================RECHERCHE COURS==============
+        public static Cours getCoursRechercheByMatri(string matricour)
+        {
+            Cours c = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Cours, dbo.Prof where Cours.Matricule_Prof = Prof.Matricule_Prof";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                c = new Cours();
+                c.CodeC = reader["code_Cours"].ToString();
+                c.Intitule = reader["intitule_Cours"].ToString();
+                c.Vh = reader["vh_Cours"].ToString();
+                c.Prof = new Prof();
+                c.Prof.Matricule = reader["Matricule_Prof"].ToString();
+                c.Prof.Nom = reader["Nom_Prof"].ToString();
+                c.Prof.Grade = reader["Grade_Prof"].ToString();
+
+
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return c;
+
+        }
+
+
+        //=======================AFFICHER ETUDIANT==============
+        public static ArrayList getEtudiant()
+        {
+            ArrayList etudiant = new ArrayList();
+            Etudiant etu = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Etudiant";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                etu = new Etudiant();
+                etu.Matricule = reader["Matricule_Etudiant"].ToString();
+                etu.Nom = reader["Nom_Etudiant"].ToString();
+                etu.Prenom = reader["Prenom_Etudiant"].ToString();
+                etu.Genre = reader["Genre_Etudiant"].ToString();
+                etu.Nationalite = reader["Nationalite_Etudiant"].ToString();
+                etu.DateNaissanceEtu = reader["DateNaissance_Etudiant"].ToString();
+                etu.LieuNaissanceEtu = reader["LieuNaissance_Etudiant"].ToString();
+                etu.Email = reader["Email_Etudiant"].ToString();
+                
+                etudiant.Add(etu);
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return etudiant;
+
+        }
+
+        //=======================INSERT ETUDIANT==============
+
+        public static int insertEtudiant(Etudiant etu)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "insert into dbo.Etudiant (Matricule_Etudiant, Nom_Etudiant, Prenom_Etudiant, Genre_Etudiant, Nationalite_Etudiant, DateNaissance_Etudiant, LieuNaissance_Etudiant, Email_Etudiant)  values (@ma,@no,@pr,@g,@na,@da,@li,@e)";
+            commande.Parameters.Add(new SqlParameter("@ma", etu.Matricule));
+            commande.Parameters.Add(new SqlParameter("@no", etu.Nom));
+            commande.Parameters.Add(new SqlParameter("@pr", etu.Prenom));
+            commande.Parameters.Add(new SqlParameter("@g", etu.Genre));
+            commande.Parameters.Add(new SqlParameter("@na", etu.Nationalite));
+            commande.Parameters.Add(new SqlParameter("@da", etu.DateNaissanceEtu));
+            commande.Parameters.Add(new SqlParameter("@li", etu.LieuNaissanceEtu));
+            commande.Parameters.Add(new SqlParameter("@e", etu.Email));
+
+            int n = commande.ExecuteNonQuery();
+
+            return n;
+        }
+         //=======================RECHERCHE Etudiant==============
+
+        public static Etudiant getEtudiantRechercheByMatri(string matrietud)
+        {
+            Etudiant etu = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Etudiant";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                etu = new Etudiant();
+                etu.Matricule = reader["Matricule_Etudiant"].ToString();
+                etu.Nom = reader["Nom_Etudiant"].ToString();
+                etu.Prenom = reader["Prenom_Etudiant"].ToString();
+                etu.Genre = reader["Genre_Etudiant"].ToString();
+                etu.Nationalite = reader["Nationalite_Etudiant"].ToString();
+                etu.DateNaissanceEtu = reader["DateNaissance_Etudiant"].ToString();
+                etu.LieuNaissanceEtu = reader["LieuNaissance_Etudiant"].ToString();
+                etu.Email = reader["Email_Etudiant"].ToString();
+
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return etu;
+        }
+
+        public static int deleteE(string matri)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Etudiant where Matricule_Etudiant = @matri";
+            commande.Parameters.AddWithValue("@matri", matri);
+            int n = commande.ExecuteNonQuery();
+            return n;
+        }
+
+        public static int deleteC(string matri)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Cours where code_Cours = @matri";
+            commande.Parameters.AddWithValue("@matri", matri);
+            int n = commande.ExecuteNonQuery();
+            return n;
+        }
+
+        public static int deleteP(string matri)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Prof where Matricule_Prof = @matri";
+            commande.Parameters.AddWithValue("@matri", matri);
+            int n = commande.ExecuteNonQuery();
+            return n;
+        }
+        
+           
+    }
+    }

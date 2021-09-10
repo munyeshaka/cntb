@@ -1,0 +1,4 @@
+C:\Users\Munyeshaka\project\BIU\C#\cntb\Model\bin\Debug\Model.dll
+C:\Users\Munyeshaka\project\BIU\C#\cntb\Model\bin\Debug\Model.pdb
+C:\Users\Munyeshaka\project\BIU\C#\cntb\Model\obj\Debug\Model.dll
+C:\Users\Munyeshaka\project\BIU\C#\cntb\Model\obj\Debug\Model.pdb

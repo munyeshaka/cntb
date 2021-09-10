@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Resident: Personne
+    public class Resident: Personne
     {
         string cni, nationnalite, dateNaissance;
 

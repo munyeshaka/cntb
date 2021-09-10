@@ -43,10 +43,10 @@
             this.rHomme = new System.Windows.Forms.RadioButton();
             this.gGenre = new System.Windows.Forms.GroupBox();
             this.gEtatCivil = new System.Windows.Forms.GroupBox();
-            this.rCelibataire = new System.Windows.Forms.RadioButton();
-            this.rMarie = new System.Windows.Forms.RadioButton();
-            this.rVeuf = new System.Windows.Forms.RadioButton();
             this.rDivorce = new System.Windows.Forms.RadioButton();
+            this.rVeuf = new System.Windows.Forms.RadioButton();
+            this.rMarie = new System.Windows.Forms.RadioButton();
+            this.rCelibataire = new System.Windows.Forms.RadioButton();
             this.tLieuNaissance = new System.Windows.Forms.TextBox();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
@@ -205,27 +205,16 @@
             this.gEtatCivil.TabStop = false;
             this.gEtatCivil.Text = "Etat  civil";
             // 
-            // rCelibataire
+            // rDivorce
             // 
-            this.rCelibataire.AutoSize = true;
-            this.rCelibataire.Location = new System.Drawing.Point(9, 28);
-            this.rCelibataire.Name = "rCelibataire";
-            this.rCelibataire.Size = new System.Drawing.Size(74, 17);
-            this.rCelibataire.TabIndex = 14;
-            this.rCelibataire.TabStop = true;
-            this.rCelibataire.Text = "Celibataire";
-            this.rCelibataire.UseVisualStyleBackColor = true;
-            // 
-            // rMarie
-            // 
-            this.rMarie.AutoSize = true;
-            this.rMarie.Location = new System.Drawing.Point(9, 56);
-            this.rMarie.Name = "rMarie";
-            this.rMarie.Size = new System.Drawing.Size(51, 17);
-            this.rMarie.TabIndex = 15;
-            this.rMarie.TabStop = true;
-            this.rMarie.Text = "Marie";
-            this.rMarie.UseVisualStyleBackColor = true;
+            this.rDivorce.AutoSize = true;
+            this.rDivorce.Location = new System.Drawing.Point(109, 55);
+            this.rDivorce.Name = "rDivorce";
+            this.rDivorce.Size = new System.Drawing.Size(62, 17);
+            this.rDivorce.TabIndex = 17;
+            this.rDivorce.TabStop = true;
+            this.rDivorce.Text = "Divorce";
+            this.rDivorce.UseVisualStyleBackColor = true;
             // 
             // rVeuf
             // 
@@ -238,16 +227,27 @@
             this.rVeuf.Text = "Veuf";
             this.rVeuf.UseVisualStyleBackColor = true;
             // 
-            // rDivorce
+            // rMarie
             // 
-            this.rDivorce.AutoSize = true;
-            this.rDivorce.Location = new System.Drawing.Point(109, 55);
-            this.rDivorce.Name = "rDivorce";
-            this.rDivorce.Size = new System.Drawing.Size(62, 17);
-            this.rDivorce.TabIndex = 17;
-            this.rDivorce.TabStop = true;
-            this.rDivorce.Text = "Divorce";
-            this.rDivorce.UseVisualStyleBackColor = true;
+            this.rMarie.AutoSize = true;
+            this.rMarie.Location = new System.Drawing.Point(9, 56);
+            this.rMarie.Name = "rMarie";
+            this.rMarie.Size = new System.Drawing.Size(51, 17);
+            this.rMarie.TabIndex = 15;
+            this.rMarie.TabStop = true;
+            this.rMarie.Text = "Marie";
+            this.rMarie.UseVisualStyleBackColor = true;
+            // 
+            // rCelibataire
+            // 
+            this.rCelibataire.AutoSize = true;
+            this.rCelibataire.Location = new System.Drawing.Point(9, 28);
+            this.rCelibataire.Name = "rCelibataire";
+            this.rCelibataire.Size = new System.Drawing.Size(74, 17);
+            this.rCelibataire.TabIndex = 14;
+            this.rCelibataire.TabStop = true;
+            this.rCelibataire.Text = "Celibataire";
+            this.rCelibataire.UseVisualStyleBackColor = true;
             // 
             // tLieuNaissance
             // 
@@ -318,9 +318,9 @@
             // dgvResident
             // 
             this.dgvResident.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResident.Location = new System.Drawing.Point(63, 314);
+            this.dgvResident.Location = new System.Drawing.Point(162, 314);
             this.dgvResident.Name = "dgvResident";
-            this.dgvResident.Size = new System.Drawing.Size(959, 237);
+            this.dgvResident.Size = new System.Drawing.Size(860, 257);
             this.dgvResident.TabIndex = 26;
             // 
             // ucResident
@@ -350,7 +350,8 @@
             this.Controls.Add(this.tcni);
             this.Controls.Add(this.label1);
             this.Name = "ucResident";
-            this.Size = new System.Drawing.Size(1064, 566);
+            this.Size = new System.Drawing.Size(1064, 586);
+            this.Load += new System.EventHandler(this.ucResident_Load);
             this.gGenre.ResumeLayout(false);
             this.gGenre.PerformLayout();
             this.gEtatCivil.ResumeLayout(false);
