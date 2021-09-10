@@ -1,0 +1,108 @@
+
+create database cntb;
+
+use cntb;
+
+SELECT Distinct TABLE_NAME FROM information_schema.TABLES
+
+
+
+
+/*DROP TABLE Residents ; */
+
+CREATE TABLE Residents (cni_Residents VARCHAR(30) NOT NULL,
+nom_Residents VARCHAR(30),
+prenom_Residents VARCHAR(30),
+genre_Residents VARCHAR(30),
+etatCivil_Residents VARCHAR(30),
+nationalite_Residents VARCHAR(30),
+dateNaissance_Residents VARCHAR(30),
+lieuNaissance_Residents VARCHAR(30),
+PRIMARY KEY (cni_Residents));
+
+
+insert into Residents values('1','BIMUBO','Jean','Homme','Marie','Burundaise','12-12-1990','Mivo');
+insert into Residents values('2','CIMPAYE','Pierre','Homme','Marie','Burundaise','6-6-1989','Mihigo');
+insert into Residents values('3','CISHAHAYO','Josephine','Femme','Marie','Burundaise','12-12-1987','Makaba');
+
+
+
+
+/*DROP TABLE Parcelle ;*/
+
+CREATE TABLE Parcelle (province_Parcelle VARCHAR(30) NOT NULL,
+commune_Parcelle VARCHAR(30),
+rue_Parcelle VARCHAR(30),
+numero_Parcelle VARCHAR(30),
+nombreAres_Parcelle VARCHAR(30),
+batieVraiFaux_Parcelle VARCHAR(30),
+cni_Residents VARCHAR(30),
+PRIMARY KEY (province_Parcelle));
+
+insert into Parcelle values('1','Ntahangwa','kiyege','2','2','vraie','1','Bujumbura');
+insert into Parcelle values('2','Kayanza','Rubaho','4','3','vraie','3','Kayanza');
+insert into Parcelle values('3','Gitega','Kavovo','22','4','Faux','2','Gitega');
+
+
+
+
+
+/*DROP TABLE Proces ; */
+
+CREATE TABLE Proces (id_Proces VARCHAR(30) NOT NULL,
+date_Proces VARCHAR(30),
+nomJuge_Proces VARCHAR(30),
+pv_Proces VARCHAR(1000),
+province_Parcelle VARCHAR(30),
+PRIMARY KEY (id_Proces));
+
+insert into Proces values('1','12-12-2016','MANARIYO Bosco','Harahiwacu narahuze nawe acarahishikiriza','2');
+insert into Proces values('2','1-2-2017','MANIMPAYE Dieudonne','Yarahishikiriza acarahagurisha','1');
+insert into Proces values('3','2-2-2018','MUGISHA Blessing','Jewe nabaye bugure','3');
+
+
+
+
+
+/*DROP TABLE Rappatries ; */
+
+CREATE TABLE Rappatries (id_Rappatries VARCHAR(30) NOT NULL,
+nom_Rappatries VARCHAR(30),
+prenom_Rappatries VARCHAR(30),
+genre_Rappatries VARCHAR(30),
+etatCivil_Rappatries VARCHAR(30),
+nombreEnfant_Rappatries VARCHAR(30),
+lieuNaissance_Rappatries VARCHAR(30),
+nomPere_Rappatries VARCHAR(30),
+nomMere_Rappatries VARCHAR(30),
+province_Rappatries VARCHAR(30),
+commune_Rappatries VARCHAR(30),
+dateRetour_Rappatries VARCHAR(30),
+PRIMARY KEY (id_Rappatries));
+
+insert into Rappatries values('1','CIZA','Mark','Homme','Marie','2','Gihosha','NYABENDA Paul','KEZA Rosette','Bujumbura','Ntahangwa','3-3-2015');
+insert into Rappatries values('2','NIYIMPA','Patrick','Homme','Marie','5','Gatwaro','MINANI Thierry','IRANZI Divine','Kayanza','Kayanza','11-3-2016');
+insert into Rappatries values('3','NIYONKURU','Eric','Homme','Marie','3','Yoba','GAHUNGU Pierre','IRUMVA Elodie','Gitega','Gitega','6-7-2017');
+
+
+
+
+/*DROP TABLE Reclamer ; */
+
+CREATE TABLE Reclamer (province_Parcelle VARCHAR(30) NOT NULL,
+id_Rappatries VARCHAR(30) NOT NULL,
+PRIMARY KEY (province_Parcelle,
+ id_Rappatries));
+
+insert into Reclamer values('1','1');
+insert into Reclamer values('2','2');
+insert into Reclamer values('3','3');
+
+
+
+
+ALTER TABLE Parcelle ADD CONSTRAINT FK_Parcelle_cni_Residents FOREIGN KEY (cni_Residents) REFERENCES Residents (cni_Residents);
+
+ALTER TABLE Proces ADD CONSTRAINT FK_Proces_province_Parcelle FOREIGN KEY (province_Parcelle) REFERENCES Parcelle (province_Parcelle);
+ALTER TABLE Reclamer ADD CONSTRAINT FK_Reclamer_province_Parcelle FOREIGN KEY (province_Parcelle) REFERENCES Parcelle (province_Parcelle);
+ALTER TABLE Reclamer ADD CONSTRAINT FK_Reclamer_id_Rappatries FOREIGN KEY (id_Rappatries) REFERENCES Rappatries (id_Rappatries);
