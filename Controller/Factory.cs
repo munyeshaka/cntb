@@ -13,6 +13,7 @@ namespace Controller
     public class Factory
     {
         public static ArrayList listResident = new ArrayList();
+        public static ArrayList listRappatries = new ArrayList();
         //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
         public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
 
@@ -48,6 +49,39 @@ namespace Controller
             conn.Close();
             return residents;
 
+        }
+
+        public static ArrayList getRappatries() {
+            ArrayList rappatries = new ArrayList();
+            Rappatries ra = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Rappatries";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read()) {
+
+                ra = new Rappatries();
+                ra.Id = reader["id_Rappatries"].ToString();
+                ra.Nom = reader["nom_Rappatries"].ToString();
+                ra.Prenom = reader["prenom_Rappatries"].ToString();
+                ra.Genre = reader["genre_Rappatries"].ToString();
+                ra.EtatCivil = reader["etatCivil_Rappatries"].ToString();
+                ra.NombreEnfants = reader["nombreEnfant_Rappatries"].ToString();
+                ra.LieuNaissance = reader["lieuNaissance_Rappatries"].ToString();
+                ra.NomPere = reader["nomPere_Rappatries"].ToString();
+                ra.NomMere = reader["nomMere_Rappatries"].ToString();
+                ra.Province = reader["province_Rappatries"].ToString();
+                ra.Commune = reader["commune_Rappatries"].ToString();
+                ra.DateRetour = reader["dateRetour_Rappatries"].ToString();
+
+                rappatries.Add(ra);
+
+            }
+            reader.Close();
+            conn.Close();
+            return rappatries;
         }
 
     }

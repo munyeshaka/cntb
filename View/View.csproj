@@ -43,6 +43,12 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucRappatries.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRappatries.Designer.cs">
+      <DependentUpon>ucRappatries.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucResident.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -51,6 +57,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ucRappatries.resx">
+      <DependentUpon>ucRappatries.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucResident.resx">
       <DependentUpon>ucResident.cs</DependentUpon>
     </EmbeddedResource>

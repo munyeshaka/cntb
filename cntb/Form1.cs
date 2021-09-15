@@ -24,5 +24,12 @@ namespace cntb
             this.HomePanel.Controls.Clear();
             this.HomePanel.Controls.Add(resident);
         }
+
+        private void rappatriésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucRappatries rappatries = new ucRappatries();
+            this.HomePanel.Controls.Clear();
+            this.HomePanel.Controls.Add(rappatries);
+        }
     }
 }
