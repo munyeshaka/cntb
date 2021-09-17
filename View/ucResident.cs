@@ -110,5 +110,19 @@ namespace View
 
         }
 
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int line = Factory.deleteResident(tRechercher.Text);
+                if (line != 0)
+                    MessageBox.Show("Suppression reussi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

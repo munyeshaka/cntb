@@ -108,9 +108,20 @@ namespace Controller
             conn.Close();
             return r;
 
-        }
+        }//=======================END RECHERCHE RESIDENT==============
 
-        //=======================END RECHERCHE RESIDENT==============
+        //======================= SUPRRIMER RESIDENT==============
+        
+        public static int deleteResident(string cniRe)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Residents where cni_Residents = @cni";
+            commande.Parameters.AddWithValue("@cni", cniRe);
+            int n = commande.ExecuteNonQuery();
+            return n;
+        }//=======================END SUPRRIMER RESIDENT==============
 
 
         public static ArrayList getRappatries() {
