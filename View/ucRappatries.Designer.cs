@@ -48,23 +48,23 @@
             this.lblProv = new System.Windows.Forms.Label();
             this.lblComm = new System.Windows.Forms.Label();
             this.lblDateR = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tId = new System.Windows.Forms.TextBox();
+            this.tNom = new System.Windows.Forms.TextBox();
+            this.tPren = new System.Windows.Forms.TextBox();
+            this.tNp = new System.Windows.Forms.TextBox();
+            this.tNm = new System.Windows.Forms.TextBox();
+            this.tLn = new System.Windows.Forms.TextBox();
+            this.tnbe = new System.Windows.Forms.TextBox();
+            this.cboPro = new System.Windows.Forms.ComboBox();
+            this.cboCo = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerRa = new System.Windows.Forms.DateTimePicker();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnActualiser = new System.Windows.Forms.Button();
             this.btnReinitialiser = new System.Windows.Forms.Button();
             this.btnRechercher = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.dgvRappatries = new System.Windows.Forms.DataGridView();
+            this.zonerecherche = new System.Windows.Forms.ComboBox();
             this.gbGenre.SuspendLayout();
             this.gbEC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRappatries)).BeginInit();
@@ -78,6 +78,7 @@
             this.btnAjouter.TabIndex = 0;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // lblRap
             // 
@@ -269,77 +270,99 @@
             this.lblDateR.TabIndex = 13;
             this.lblDateR.Text = "Date de retour";
             // 
-            // textBox1
+            // tId
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 14;
+            this.tId.Location = new System.Drawing.Point(122, 66);
+            this.tId.Name = "tId";
+            this.tId.Size = new System.Drawing.Size(191, 20);
+            this.tId.TabIndex = 14;
             // 
-            // textBox2
+            // tNom
             // 
-            this.textBox2.Location = new System.Drawing.Point(122, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 20);
-            this.textBox2.TabIndex = 15;
+            this.tNom.Location = new System.Drawing.Point(122, 99);
+            this.tNom.Name = "tNom";
+            this.tNom.Size = new System.Drawing.Size(191, 20);
+            this.tNom.TabIndex = 15;
             // 
-            // textBox3
+            // tPren
             // 
-            this.textBox3.Location = new System.Drawing.Point(122, 131);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 16;
+            this.tPren.Location = new System.Drawing.Point(122, 131);
+            this.tPren.Name = "tPren";
+            this.tPren.Size = new System.Drawing.Size(191, 20);
+            this.tPren.TabIndex = 16;
             // 
-            // textBox4
+            // tNp
             // 
-            this.textBox4.Location = new System.Drawing.Point(122, 162);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 20);
-            this.textBox4.TabIndex = 17;
+            this.tNp.Location = new System.Drawing.Point(122, 162);
+            this.tNp.Name = "tNp";
+            this.tNp.Size = new System.Drawing.Size(191, 20);
+            this.tNp.TabIndex = 17;
             // 
-            // textBox5
+            // tNm
             // 
-            this.textBox5.Location = new System.Drawing.Point(122, 192);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(191, 20);
-            this.textBox5.TabIndex = 18;
+            this.tNm.Location = new System.Drawing.Point(122, 192);
+            this.tNm.Name = "tNm";
+            this.tNm.Size = new System.Drawing.Size(191, 20);
+            this.tNm.TabIndex = 18;
             // 
-            // textBox6
+            // tLn
             // 
-            this.textBox6.Location = new System.Drawing.Point(790, 66);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 20);
-            this.textBox6.TabIndex = 19;
+            this.tLn.Location = new System.Drawing.Point(790, 66);
+            this.tLn.Name = "tLn";
+            this.tLn.Size = new System.Drawing.Size(200, 20);
+            this.tLn.TabIndex = 19;
             // 
-            // textBox7
+            // tnbe
             // 
-            this.textBox7.Location = new System.Drawing.Point(790, 96);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(200, 20);
-            this.textBox7.TabIndex = 20;
+            this.tnbe.Location = new System.Drawing.Point(790, 96);
+            this.tnbe.Name = "tnbe";
+            this.tnbe.Size = new System.Drawing.Size(200, 20);
+            this.tnbe.TabIndex = 20;
             // 
-            // comboBox1
+            // cboPro
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(790, 122);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 21;
+            this.cboPro.FormattingEnabled = true;
+            this.cboPro.Items.AddRange(new object[] {
+            "Bubanza",
+            "Bujumbura",
+            "Bururi",
+            "Cankuzo",
+            "Cibitoke",
+            "Gitega",
+            "Karusi",
+            "Kayanza",
+            "Muramvya",
+            "Mwaro",
+            "Ngozi",
+            "Ruyigi",
+            ""});
+            this.cboPro.Location = new System.Drawing.Point(790, 122);
+            this.cboPro.Name = "cboPro";
+            this.cboPro.Size = new System.Drawing.Size(200, 21);
+            this.cboPro.TabIndex = 21;
             // 
-            // comboBox2
+            // cboCo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(790, 149);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(200, 21);
-            this.comboBox2.TabIndex = 22;
+            this.cboCo.FormattingEnabled = true;
+            this.cboCo.Items.AddRange(new object[] {
+            "Muha",
+            "Mukaza",
+            "Ntahangwa",
+            "Kayokwe",
+            "Rutovu",
+            "Kibuye",
+            "Mbuye"});
+            this.cboCo.Location = new System.Drawing.Point(790, 149);
+            this.cboCo.Name = "cboCo";
+            this.cboCo.Size = new System.Drawing.Size(200, 21);
+            this.cboCo.TabIndex = 22;
             // 
-            // dateTimePicker1
+            // dateTimePickerRa
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(790, 176);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this.dateTimePickerRa.Location = new System.Drawing.Point(790, 176);
+            this.dateTimePickerRa.Name = "dateTimePickerRa";
+            this.dateTimePickerRa.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerRa.TabIndex = 23;
             // 
             // btnModifier
             // 
@@ -349,6 +372,7 @@
             this.btnModifier.TabIndex = 24;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
@@ -358,6 +382,7 @@
             this.btnSupprimer.TabIndex = 25;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnActualiser
             // 
@@ -367,6 +392,7 @@
             this.btnActualiser.TabIndex = 26;
             this.btnActualiser.Text = "Actualiser";
             this.btnActualiser.UseVisualStyleBackColor = true;
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // btnReinitialiser
             // 
@@ -376,6 +402,7 @@
             this.btnReinitialiser.TabIndex = 27;
             this.btnReinitialiser.Text = "Reinitialiser";
             this.btnReinitialiser.UseVisualStyleBackColor = true;
+            this.btnReinitialiser.Click += new System.EventHandler(this.btnReinitialiser_Click);
             // 
             // btnRechercher
             // 
@@ -385,43 +412,46 @@
             this.btnRechercher.TabIndex = 28;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(790, 256);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 29;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // dgvRappatries
             // 
             this.dgvRappatries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRappatries.Location = new System.Drawing.Point(122, 309);
+            this.dgvRappatries.Location = new System.Drawing.Point(24, 309);
             this.dgvRappatries.Name = "dgvRappatries";
-            this.dgvRappatries.Size = new System.Drawing.Size(868, 210);
+            this.dgvRappatries.Size = new System.Drawing.Size(966, 210);
             this.dgvRappatries.TabIndex = 30;
+            // 
+            // zonerecherche
+            // 
+            this.zonerecherche.FormattingEnabled = true;
+            this.zonerecherche.Location = new System.Drawing.Point(790, 253);
+            this.zonerecherche.Name = "zonerecherche";
+            this.zonerecherche.Size = new System.Drawing.Size(121, 21);
+            this.zonerecherche.TabIndex = 31;
+            this.zonerecherche.SelectedIndexChanged += new System.EventHandler(this.zonerecherche_SelectedIndexChanged);
             // 
             // ucRappatries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.zonerecherche);
             this.Controls.Add(this.dgvRappatries);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.btnReinitialiser);
             this.Controls.Add(this.btnActualiser);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dateTimePickerRa);
+            this.Controls.Add(this.cboCo);
+            this.Controls.Add(this.cboPro);
+            this.Controls.Add(this.tnbe);
+            this.Controls.Add(this.tLn);
+            this.Controls.Add(this.tNm);
+            this.Controls.Add(this.tNp);
+            this.Controls.Add(this.tPren);
+            this.Controls.Add(this.tNom);
+            this.Controls.Add(this.tId);
             this.Controls.Add(this.lblDateR);
             this.Controls.Add(this.lblComm);
             this.Controls.Add(this.lblProv);
@@ -471,22 +501,22 @@
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton rbtnMarie;
         private System.Windows.Forms.RadioButton rbtnCelibataire;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox tId;
+        private System.Windows.Forms.TextBox tNom;
+        private System.Windows.Forms.TextBox tPren;
+        private System.Windows.Forms.TextBox tNp;
+        private System.Windows.Forms.TextBox tNm;
+        private System.Windows.Forms.TextBox tLn;
+        private System.Windows.Forms.TextBox tnbe;
+        private System.Windows.Forms.ComboBox cboPro;
+        private System.Windows.Forms.ComboBox cboCo;
+        private System.Windows.Forms.DateTimePicker dateTimePickerRa;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnActualiser;
         private System.Windows.Forms.Button btnReinitialiser;
         private System.Windows.Forms.Button btnRechercher;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.DataGridView dgvRappatries;
+        private System.Windows.Forms.ComboBox zonerecherche;
     }
 }
