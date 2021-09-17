@@ -33,7 +33,7 @@ namespace View
         string GenererMatri(Resident re)
         {
             int nbre = Factory.getResident().Count + 1;
-            string matri = re.Nom.Substring(0, 2);
+            string matri = re.Nom.Substring(0, 3);
             matri = matri + nbre.ToString();
             return matri;
         }
@@ -85,5 +85,30 @@ namespace View
             listeResident = Factory.getResident();
             dgvResident.DataSource = listeResident;
         }
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            string ma = tRechercher.Text.Trim();
+            r = Factory.getResidentRechercheByCni(ma);
+            if (r != null)
+            {
+                recupererResident(r);
+            }
+        }
+
+        void recupererResident(Resident r)
+        {
+            tcni.Text = r.Cni;
+            tnom.Text = r.Nom;
+            tprenom.Text = r.Prenom;
+            gGenre.Text = r.Genre;
+            gEtatCivil.Text = r.EtatCivil;
+            coNationnalite.Text = r.Nationnalite;
+            tdateNaissance.Text = r.DateNaissance;
+            tLieuNaissance.Text = r.LieuNaissance;
+
+
+        }
+
     }
 }

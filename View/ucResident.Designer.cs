@@ -72,6 +72,7 @@
             // 
             // tcni
             // 
+            this.tcni.Enabled = false;
             this.tcni.Location = new System.Drawing.Point(162, 115);
             this.tcni.Name = "tcni";
             this.tcni.Size = new System.Drawing.Size(173, 20);
@@ -302,6 +303,7 @@
             this.btnRechercher.TabIndex = 23;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // tRechercher
             // 

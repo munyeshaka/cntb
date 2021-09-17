@@ -79,6 +79,38 @@ namespace Controller
         }
         //=======================END INSERT Resident==============
 
+        //=======================RECHERCHE RESIDENT==============
+
+        public static Resident getResidentRechercheByCni(string cniResident)
+        {
+            Resident r = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Residents";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                r = new Resident();
+                r.Cni = reader["cni_Residents"].ToString();
+                r.Nom = reader["nom_Residents"].ToString();
+                r.Prenom = reader["prenom_Residents"].ToString();
+                r.Genre = reader["genre_Residents"].ToString();
+                r.EtatCivil = reader["etatCivil_Residents"].ToString();
+                r.Nationnalite = reader["nationalite_Residents"].ToString();
+                r.DateNaissance = reader["dateNaissance_Residents"].ToString();
+                r.LieuNaissance = reader["lieuNaissance_Residents"].ToString();
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return r;
+
+        }
+
+        //=======================END RECHERCHE RESIDENT==============
 
 
         public static ArrayList getRappatries() {
