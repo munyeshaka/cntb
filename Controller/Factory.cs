@@ -93,14 +93,15 @@ namespace Controller
             if (reader.Read())
             {
                 r = new Resident();
-                r.Cni = reader["cni_Residents"].ToString();
-                r.Nom = reader["nom_Residents"].ToString();
-                r.Prenom = reader["prenom_Residents"].ToString();
-                r.Genre = reader["genre_Residents"].ToString();
-                r.EtatCivil = reader["etatCivil_Residents"].ToString();
-                r.Nationnalite = reader["nationalite_Residents"].ToString();
+
                 r.DateNaissance = reader["dateNaissance_Residents"].ToString();
+                r.Nationnalite = reader["nationalite_Residents"].ToString();
+                r.Cni = reader["cni_Residents"].ToString();
                 r.LieuNaissance = reader["lieuNaissance_Residents"].ToString();
+                r.EtatCivil = reader["etatCivil_Residents"].ToString();
+                r.Genre = reader["genre_Residents"].ToString();
+                r.Prenom = reader["prenom_Residents"].ToString();
+                r.Nom = reader["nom_Residents"].ToString();
 
             }
 
@@ -123,6 +124,28 @@ namespace Controller
             return n;
         }//=======================END SUPRRIMER RESIDENT==============
 
+        //======================= MODIFIER RESIDENT==============
+        public static int modifierResident(Resident re)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "update dbo.Residents set cni_Residents=@cni, nom_Residents=@nom, prenom_Residents=@prenom, genre_Residents=@genre, etatCivil_Residents=@etatcivil, nationalite_Residents=@na, dateNaissance_Residents=@da, lieuNaissance_Residents=@lieun where cni_Residents=@cni";
+            commande.Parameters.Add(new SqlParameter("@cni", re.Cni));
+            commande.Parameters.Add(new SqlParameter("@nom", re.Nom));
+            commande.Parameters.Add(new SqlParameter("@prenom", re.Prenom));
+            commande.Parameters.Add(new SqlParameter("@genre", re.Genre));
+            commande.Parameters.Add(new SqlParameter("@etatcivil", re.EtatCivil));
+            commande.Parameters.Add(new SqlParameter("@na", re.Nationnalite));
+            commande.Parameters.Add(new SqlParameter("@da", re.DateNaissance));
+            commande.Parameters.Add(new SqlParameter("@lieun", re.LieuNaissance));
+
+
+            int n = commande.ExecuteNonQuery();
+            return n;
+
+        }////=======================END MODIFIER RESIDENT==============
 
         public static ArrayList getRappatries() {
             ArrayList rappatries = new ArrayList();

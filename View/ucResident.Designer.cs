@@ -313,11 +313,11 @@
             // 
             // dgvResident
             // 
-            this.dgvResident.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResident.Location = new System.Drawing.Point(162, 314);
+            this.dgvResident.Location = new System.Drawing.Point(63, 307);
             this.dgvResident.Name = "dgvResident";
-            this.dgvResident.Size = new System.Drawing.Size(860, 257);
+            this.dgvResident.Size = new System.Drawing.Size(853, 257);
             this.dgvResident.TabIndex = 26;
+            this.dgvResident.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellContentClick);
             // 
             // btnActualiser
             // 
@@ -356,7 +356,7 @@
             this.Controls.Add(this.tcni);
             this.Controls.Add(this.label1);
             this.Name = "ucResident";
-            this.Size = new System.Drawing.Size(1064, 586);
+            this.Size = new System.Drawing.Size(1064, 609);
             this.Load += new System.EventHandler(this.ucResident_Load);
             this.gGenre.ResumeLayout(false);
             this.gGenre.PerformLayout();

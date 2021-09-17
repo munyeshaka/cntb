@@ -40,7 +40,7 @@
             // 
             this.HomePanel.Location = new System.Drawing.Point(12, 27);
             this.HomePanel.Name = "HomePanel";
-            this.HomePanel.Size = new System.Drawing.Size(1117, 551);
+            this.HomePanel.Size = new System.Drawing.Size(1148, 643);
             this.HomePanel.TabIndex = 1;
             // 
             // donneessDeBaseToolStripMenuItem
@@ -55,14 +55,14 @@
             // residentToolStripMenuItem
             // 
             this.residentToolStripMenuItem.Name = "residentToolStripMenuItem";
-            this.residentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.residentToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.residentToolStripMenuItem.Text = "Residents";
             this.residentToolStripMenuItem.Click += new System.EventHandler(this.residentToolStripMenuItem_Click);
             // 
             // rappatriésToolStripMenuItem
             // 
             this.rappatriésToolStripMenuItem.Name = "rappatriésToolStripMenuItem";
-            this.rappatriésToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rappatriésToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.rappatriésToolStripMenuItem.Text = "Rappatriés";
             this.rappatriésToolStripMenuItem.Click += new System.EventHandler(this.rappatriésToolStripMenuItem_Click);
             // 
@@ -72,7 +72,7 @@
             this.donneessDeBaseToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1141, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1172, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,7 +80,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 583);
+            this.ClientSize = new System.Drawing.Size(1172, 682);
             this.Controls.Add(this.HomePanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

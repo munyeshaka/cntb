@@ -26,8 +26,21 @@ namespace View
 
         private void ucResident_Load(object sender, EventArgs e)
         {
+            // Resize the master DataGridView columns to fit the newly loaded data.
+            //dgvResident.AutoResizeColumns();
+
             listeResident = Factory.getResident();
             dgvResident.DataSource = listeResident;
+
+            dgvResident.Columns["DateNaissance"].HeaderText = "Date de Naissance";
+            dgvResident.Columns["Nationnalite"].HeaderText = "Nationalite";
+            dgvResident.Columns["Cni"].DisplayIndex = 0;
+            //dgvResident.Columns["cni_Residents"].Visible = false;
+            dgvResident.Columns["LieuNaissance"].HeaderText = "Lieu de Naissance";
+            dgvResident.Columns["EtatCivil"].HeaderText = "Etat civil";
+            dgvResident.Columns["Genre"].DisplayIndex = 3;
+            dgvResident.Columns["Prenom"].DisplayIndex = 2;
+            dgvResident.Columns["Nom"].DisplayIndex = 1;
         }
 
         string GenererMatri(Resident re)
@@ -182,6 +195,7 @@ namespace View
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            Application.EnableVisualStyles();
             DialogResult dr = MessageBox.Show("Voulez-vous vraiment Modifier ces donnees??", "", MessageBoxButtons.YesNo);
             switch (dr)
             {
@@ -214,7 +228,7 @@ namespace View
 
                     try
                     {
-                        int line = Factory.insertResident(r);
+                        int line = Factory.modifierResident(r);
 
                         if (line != 0)
                             MessageBox.Show("Modification reussi");
@@ -234,5 +248,22 @@ namespace View
             }
 
         }
+
+        private void dgvResident_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvResident.Rows[e.RowIndex];
+                tLieuNaissance.Text = row.Cells["DateNaissance"].Value.ToString();
+                coNationnalite.Text = row.Cells["Nationnalite"].Value.ToString();
+                tcni.Text = row.Cells["Cni"].Value.ToString();
+                tprenom.Text = row.Cells["LieuNaissance"].Value.ToString();
+                gEtatCivil.Text = row.Cells["EtatCivil"].Value.ToString();
+                gGenre.Text = row.Cells["Genre"].Value.ToString();
+                tprenom.Text = row.Cells["Prenom"].Value.ToString();
+                tnom.Text = row.Cells["Nom"].Value.ToString();
+            }
+        }
+
     }
 }
