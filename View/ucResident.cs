@@ -112,16 +112,30 @@ namespace View
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            try
+
+            DialogResult dr = MessageBox.Show("Voulez-vous vraiment supprimer ce resident??", "", MessageBoxButtons.YesNo);
+            switch (dr)
             {
-                int line = Factory.deleteResident(tRechercher.Text);
-                if (line != 0)
-                    MessageBox.Show("Suppression reussi");
+                case DialogResult.Yes:
+                    try
+                    {
+                        int line = Factory.deleteResident(tRechercher.Text);
+                        if (line != 0)
+                            MessageBox.Show("Suppression reussi");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    MessageBox.Show("Votre resident a ete supprime ...");
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("Votre resident n'a pas ete supprime ...");
+                    break;
+
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
         private void btnReinitialiser_Click(object sender, EventArgs e)
