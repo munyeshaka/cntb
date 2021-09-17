@@ -56,6 +56,7 @@
             this.tRechercher = new System.Windows.Forms.TextBox();
             this.tdateNaissance = new System.Windows.Forms.DateTimePicker();
             this.dgvResident = new System.Windows.Forms.DataGridView();
+            this.btnReinitialiser = new System.Windows.Forms.Button();
             this.gGenre.SuspendLayout();
             this.gEtatCivil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResident)).BeginInit();
@@ -72,6 +73,7 @@
             // 
             // tcni
             // 
+            this.tcni.Enabled = false;
             this.tcni.Location = new System.Drawing.Point(162, 115);
             this.tcni.Name = "tcni";
             this.tcni.Size = new System.Drawing.Size(173, 20);
@@ -264,6 +266,7 @@
             this.btnAjouter.TabIndex = 19;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -273,6 +276,7 @@
             this.btnModifier.TabIndex = 20;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
@@ -282,6 +286,7 @@
             this.btnSupprimer.TabIndex = 21;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnActualiser
             // 
@@ -291,6 +296,7 @@
             this.btnActualiser.TabIndex = 22;
             this.btnActualiser.Text = "Actualiser";
             this.btnActualiser.UseVisualStyleBackColor = true;
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // btnRechercher
             // 
@@ -300,6 +306,7 @@
             this.btnRechercher.TabIndex = 23;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // tRechercher
             // 
@@ -323,10 +330,21 @@
             this.dgvResident.Size = new System.Drawing.Size(860, 257);
             this.dgvResident.TabIndex = 26;
             // 
+            // btnReinitialiser
+            // 
+            this.btnReinitialiser.Location = new System.Drawing.Point(547, 265);
+            this.btnReinitialiser.Name = "btnReinitialiser";
+            this.btnReinitialiser.Size = new System.Drawing.Size(75, 23);
+            this.btnReinitialiser.TabIndex = 27;
+            this.btnReinitialiser.Text = "Reinitialiser";
+            this.btnReinitialiser.UseVisualStyleBackColor = true;
+            this.btnReinitialiser.Click += new System.EventHandler(this.btnReinitialiser_Click);
+            // 
             // ucResident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnReinitialiser);
             this.Controls.Add(this.dgvResident);
             this.Controls.Add(this.tdateNaissance);
             this.Controls.Add(this.tRechercher);
@@ -392,5 +410,6 @@
         private System.Windows.Forms.TextBox tRechercher;
         private System.Windows.Forms.DateTimePicker tdateNaissance;
         private System.Windows.Forms.DataGridView dgvResident;
+        private System.Windows.Forms.Button btnReinitialiser;
     }
 }
