@@ -44,7 +44,7 @@ namespace View
             r.Nom = tnom.Text;
             r.Cni = GenererMatri(r);
             r.Prenom = tprenom.Text;
-            
+
             foreach (Control c in gGenre.Controls)
             {
                 if (((RadioButton)c).Checked)
@@ -135,7 +135,7 @@ namespace View
                     break;
 
             }
-            
+
         }
 
         private void btnReinitialiser_Click(object sender, EventArgs e)
@@ -153,15 +153,68 @@ namespace View
                     coNationnalite.Text = "";
                     tdateNaissance.Text = "";
                     tLieuNaissance.Text = "";
+                    tRechercher.Text = "";
 
-                    MessageBox.Show("Votre formulaire a ete reinitialise ...");
+                    MessageBox.Show("Votre formulaire a ete reinitialise !!");
                     break;
                 case DialogResult.No:
-                    MessageBox.Show("Votre formulaire n'a pas ete reinitialise ...");
+                    MessageBox.Show("Votre formulaire n'a pas ete reinitialise !!");
                     break;
 
             }
         }
 
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Voulez-vous vraiment Modifier ces donnees??", "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    r = new Resident();
+                    r.Nom = tnom.Text;
+                    r.Cni = GenererMatri(r);
+                    r.Prenom = tprenom.Text;
+
+                    foreach (Control c in gGenre.Controls)
+                    {
+                        if (((RadioButton)c).Checked)
+                        {
+                            r.Genre = ((RadioButton)c).Text;
+                        }
+                    }
+
+                    foreach (Control c in gEtatCivil.Controls)
+                    {
+                        if (((RadioButton)c).Checked)
+                        {
+                            r.EtatCivil = ((RadioButton)c).Text;
+                        }
+                    }
+                    r.Nationnalite = coNationnalite.SelectedItem.ToString();
+                    r.DateNaissance = tdateNaissance.Text;
+                    r.LieuNaissance = tLieuNaissance.Text;
+
+
+
+                    try
+                    {
+                        int line = Factory.insertResident(r);
+
+                        if (line != 0)
+                            MessageBox.Show("Modification reussi");
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Votre donnees a ete modifiees !!");
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("Votre donnees n'a pas ete modifiees!!");
+                    break;
+            }
+
+        }
     }
 }
