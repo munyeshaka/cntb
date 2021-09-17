@@ -72,6 +72,8 @@ namespace View
 
                 if (line != 0)
                     MessageBox.Show("Enregistrement reussi");
+                    Actualiser();
+                    Reinitialiser();
             }
 
             catch (Exception ex)
@@ -84,8 +86,27 @@ namespace View
         {
             listeResident = Factory.getResident();
             dgvResident.DataSource = listeResident;
+            Reinitialiser();
         }
 
+        private void Actualiser()
+        {
+            listeResident = Factory.getResident();
+            dgvResident.DataSource = listeResident;
+        }
+        private void Reinitialiser()
+        {
+                    tcni.Text = "";
+                    tnom.Text = "";
+                    tprenom.Text = "";
+                    gGenre.Text = "";
+                    gEtatCivil.Text = "";
+                    coNationnalite.Text = "";
+                    tdateNaissance.Text = "";
+                    tLieuNaissance.Text = "";
+                    tRechercher.Text = "";
+
+        }
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             string ma = tRechercher.Text.Trim();
@@ -101,6 +122,21 @@ namespace View
             tcni.Text = r.Cni;
             tnom.Text = r.Nom;
             tprenom.Text = r.Prenom;
+            foreach (Control c in gGenre.Controls)
+            {
+                if (r.Genre == ((RadioButton)c).Text)
+                    {
+                        ((RadioButton)c).Checked = true;
+                    }
+            }
+
+            foreach (Control c in gEtatCivil.Controls)
+            {
+                if (r.EtatCivil == ((RadioButton)c).Text)
+                {
+                    ((RadioButton)c).Checked = true;
+                }
+            }
             gGenre.Text = r.Genre;
             gEtatCivil.Text = r.EtatCivil;
             coNationnalite.Text = r.Nationnalite;
@@ -122,6 +158,8 @@ namespace View
                         int line = Factory.deleteResident(tRechercher.Text);
                         if (line != 0)
                             MessageBox.Show("Suppression reussi");
+                            Actualiser();
+                            Reinitialiser();
                     }
                     catch (Exception ex)
                     {
@@ -140,28 +178,6 @@ namespace View
 
         private void btnReinitialiser_Click(object sender, EventArgs e)
         {
-            Application.EnableVisualStyles();
-            DialogResult dr = MessageBox.Show("Voulez-vous vraiment reinitialiser ce formulaire??", "", MessageBoxButtons.YesNo);
-            switch (dr)
-            {
-                case DialogResult.Yes:
-                    tcni.Text = "";
-                    tnom.Text = "";
-                    tprenom.Text = "";
-                    gGenre.Text = "";
-                    gEtatCivil.Text = "";
-                    coNationnalite.Text = "";
-                    tdateNaissance.Text = "";
-                    tLieuNaissance.Text = "";
-                    tRechercher.Text = "";
-
-                    MessageBox.Show("Votre formulaire a ete reinitialise !!");
-                    break;
-                case DialogResult.No:
-                    MessageBox.Show("Votre formulaire n'a pas ete reinitialise !!");
-                    break;
-
-            }
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -202,6 +218,8 @@ namespace View
 
                         if (line != 0)
                             MessageBox.Show("Modification reussi");
+                            Actualiser();
+                            Reinitialiser();
                     }
 
                     catch (Exception ex)

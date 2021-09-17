@@ -51,12 +51,11 @@
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
-            this.btnActualiser = new System.Windows.Forms.Button();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.tRechercher = new System.Windows.Forms.TextBox();
             this.tdateNaissance = new System.Windows.Forms.DateTimePicker();
             this.dgvResident = new System.Windows.Forms.DataGridView();
-            this.btnReinitialiser = new System.Windows.Forms.Button();
+            this.btnActualiser = new System.Windows.Forms.Button();
             this.gGenre.SuspendLayout();
             this.gEtatCivil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResident)).BeginInit();
@@ -288,16 +287,6 @@
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
-            // btnActualiser
-            // 
-            this.btnActualiser.Location = new System.Drawing.Point(454, 265);
-            this.btnActualiser.Name = "btnActualiser";
-            this.btnActualiser.Size = new System.Drawing.Size(75, 23);
-            this.btnActualiser.TabIndex = 22;
-            this.btnActualiser.Text = "Actualiser";
-            this.btnActualiser.UseVisualStyleBackColor = true;
-            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
-            // 
             // btnRechercher
             // 
             this.btnRechercher.Location = new System.Drawing.Point(824, 263);
@@ -330,21 +319,20 @@
             this.dgvResident.Size = new System.Drawing.Size(860, 257);
             this.dgvResident.TabIndex = 26;
             // 
-            // btnReinitialiser
+            // btnActualiser
             // 
-            this.btnReinitialiser.Location = new System.Drawing.Point(547, 265);
-            this.btnReinitialiser.Name = "btnReinitialiser";
-            this.btnReinitialiser.Size = new System.Drawing.Size(75, 23);
-            this.btnReinitialiser.TabIndex = 27;
-            this.btnReinitialiser.Text = "Reinitialiser";
-            this.btnReinitialiser.UseVisualStyleBackColor = true;
-            this.btnReinitialiser.Click += new System.EventHandler(this.btnReinitialiser_Click);
+            this.btnActualiser.Location = new System.Drawing.Point(454, 265);
+            this.btnActualiser.Name = "btnActualiser";
+            this.btnActualiser.Size = new System.Drawing.Size(75, 23);
+            this.btnActualiser.TabIndex = 22;
+            this.btnActualiser.Text = "Actualiser";
+            this.btnActualiser.UseVisualStyleBackColor = true;
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // ucResident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnReinitialiser);
             this.Controls.Add(this.dgvResident);
             this.Controls.Add(this.tdateNaissance);
             this.Controls.Add(this.tRechercher);
@@ -405,11 +393,10 @@
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnSupprimer;
-        private System.Windows.Forms.Button btnActualiser;
         private System.Windows.Forms.Button btnRechercher;
         private System.Windows.Forms.TextBox tRechercher;
         private System.Windows.Forms.DateTimePicker tdateNaissance;
         private System.Windows.Forms.DataGridView dgvResident;
-        private System.Windows.Forms.Button btnReinitialiser;
+        private System.Windows.Forms.Button btnActualiser;
     }
 }

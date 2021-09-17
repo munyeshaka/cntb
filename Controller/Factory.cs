@@ -62,8 +62,6 @@ namespace Controller
             commande.Connection = conn;
             commande.CommandText = "insert into dbo.Residents (cni_Residents, nom_Residents, prenom_Residents, genre_Residents, etatCivil_Residents, nationalite_Residents, dateNaissance_Residents, lieuNaissance_Residents)  values (@cni,@no,@pre,@g,@eta,@na,@da,@li)";
             
-            //@cni,@no,@pre,@g,@eta,@na,@da,@li
-            
             commande.Parameters.Add(new SqlParameter("@cni", r.Cni));
             commande.Parameters.Add(new SqlParameter("@no", r.Nom));
             commande.Parameters.Add(new SqlParameter("@pre", r.Prenom));
@@ -83,14 +81,17 @@ namespace Controller
 
         public static Resident getResidentRechercheByCni(string cniResident)
         {
+            ArrayList res = new ArrayList();
             Resident r = null;
 
             if (conn.State != System.Data.ConnectionState.Open) conn.Open();
             SqlCommand commande = new SqlCommand();
             commande.Connection = conn;
-            commande.CommandText = "select * from dbo.Residents";
+            commande.CommandText = "select * from dbo.Residents where cni_Residents=@cnimat";
+            commande.Parameters.Add(new SqlParameter("@cnimat", cniResident));
             SqlDataReader reader = commande.ExecuteReader();
-            while (reader.Read())
+            
+            if (reader.Read())
             {
                 r = new Resident();
                 r.Cni = reader["cni_Residents"].ToString();
