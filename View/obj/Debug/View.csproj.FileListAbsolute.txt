@@ -21,3 +21,4 @@ C:\Users\SMS\ProjetGit\cntb\View\obj\Debug\View.csproj.GenerateResource.Cache
 C:\Users\SMS\ProjetGit\cntb\View\obj\Debug\View.dll
 C:\Users\SMS\ProjetGit\cntb\View\obj\Debug\View.pdb
 C:\Users\SMS\ProjetGit\cntb\View\obj\Debug\View.ucRappatries.resources
+C:\Users\Munyeshaka\project\BIU\C#\cntb\View\obj\Debug\View.ucRappatries.resources

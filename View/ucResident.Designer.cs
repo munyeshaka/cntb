@@ -264,6 +264,7 @@
             this.btnAjouter.TabIndex = 19;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -291,6 +292,7 @@
             this.btnActualiser.TabIndex = 22;
             this.btnActualiser.Text = "Actualiser";
             this.btnActualiser.UseVisualStyleBackColor = true;
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // btnRechercher
             // 

@@ -14,10 +14,11 @@ namespace Controller
     {
         public static ArrayList listResident = new ArrayList();
         public static ArrayList listRappatries = new ArrayList();
-        //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
-        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
 
-        //=======================AFFICHER PROF==============
+        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
+        //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
+
+        //=======================AFFICHER Resident==============
 
         public static ArrayList getResident()
         {
@@ -50,6 +51,35 @@ namespace Controller
             return residents;
 
         }
+
+        //=======================INSERT Resident==============
+
+        public static int insertResident(Resident r)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "insert into dbo.Residents (cni_Residents, nom_Residents, prenom_Residents, genre_Residents, etatCivil_Residents, nationalite_Residents, dateNaissance_Residents, lieuNaissance_Residents)  values (@cni,@no,@pre,@g,@eta,@na,@da,@li)";
+            
+            //@cni,@no,@pre,@g,@eta,@na,@da,@li
+            
+            commande.Parameters.Add(new SqlParameter("@cni", r.Cni));
+            commande.Parameters.Add(new SqlParameter("@no", r.Nom));
+            commande.Parameters.Add(new SqlParameter("@pre", r.Prenom));
+            commande.Parameters.Add(new SqlParameter("@g", r.Genre));
+            commande.Parameters.Add(new SqlParameter("@eta", r.EtatCivil));
+            commande.Parameters.Add(new SqlParameter("@na", r.Nationnalite));
+            commande.Parameters.Add(new SqlParameter("@da", r.DateNaissance));
+            commande.Parameters.Add(new SqlParameter("@li", r.LieuNaissance));
+
+            int n = commande.ExecuteNonQuery();
+
+            return n;
+        }
+        //=======================END INSERT Resident==============
+
+
 
         public static ArrayList getRappatries() {
             ArrayList rappatries = new ArrayList();
