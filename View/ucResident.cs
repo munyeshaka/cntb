@@ -124,5 +124,30 @@ namespace View
             }
         }
 
+        private void btnReinitialiser_Click(object sender, EventArgs e)
+        {
+            Application.EnableVisualStyles();
+            DialogResult dr = MessageBox.Show("Voulez-vous vraiment reinitialiser ce formulaire??", "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    tcni.Text = "";
+                    tnom.Text = "";
+                    tprenom.Text = "";
+                    gGenre.Text = "";
+                    gEtatCivil.Text = "";
+                    coNationnalite.Text = "";
+                    tdateNaissance.Text = "";
+                    tLieuNaissance.Text = "";
+
+                    MessageBox.Show("Votre formulaire a ete reinitialise ...");
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("Votre formulaire n'a pas ete reinitialise ...");
+                    break;
+
+            }
+        }
+
     }
 }
