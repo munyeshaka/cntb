@@ -49,6 +49,12 @@
     <Compile Include="ucRappatries.Designer.cs">
       <DependentUpon>ucRappatries.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucReclamer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReclamer.Designer.cs">
+      <DependentUpon>ucReclamer.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucResident.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,6 +65,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ucRappatries.resx">
       <DependentUpon>ucRappatries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucReclamer.resx">
+      <DependentUpon>ucReclamer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucResident.resx">
       <DependentUpon>ucResident.cs</DependentUpon>

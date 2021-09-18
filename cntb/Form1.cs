@@ -31,5 +31,12 @@ namespace cntb
             this.HomePanel.Controls.Clear();
             this.HomePanel.Controls.Add(rappatries);
         }
+
+        private void reclamerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucReclamer reclamer = new ucReclamer();
+            this.HomePanel.Controls.Clear();
+            this.HomePanel.Controls.Add(reclamer);
+        }
     }
 }
