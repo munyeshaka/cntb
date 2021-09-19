@@ -89,7 +89,7 @@ namespace View
             // 
             // dgvResident
             // 
-            this.dgvResident.Location = new System.Drawing.Point(3, 292);
+            this.dgvResident.Location = new System.Drawing.Point(28, 296);
             this.dgvResident.Name = "dgvResident";
             this.dgvResident.Size = new System.Drawing.Size(853, 257);
             this.dgvResident.TabIndex = 33;
