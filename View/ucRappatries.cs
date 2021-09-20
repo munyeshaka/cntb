@@ -40,6 +40,18 @@ namespace View
         {
             listeRappatries = Factory.getRappatries();
             dgvRappatries.DataSource = listeRappatries;
+            dgvRappatries.Columns[0].DisplayIndex=0;
+            dgvRappatries.Columns[11].DisplayIndex = 1;
+            dgvRappatries.Columns[10].DisplayIndex = 2;
+            dgvRappatries.Columns[2].DisplayIndex = 3;
+            dgvRappatries.Columns[3].DisplayIndex = 4;
+            dgvRappatries.Columns[9].DisplayIndex = 5;
+            dgvRappatries.Columns[8].DisplayIndex = 6;
+            dgvRappatries.Columns[7].DisplayIndex = 7;
+            dgvRappatries.Columns[4].DisplayIndex = 8;
+            dgvRappatries.Columns[5].DisplayIndex = 9;
+            dgvRappatries.Columns[1].DisplayIndex = 10;
+            dgvRappatries.Columns[6].DisplayIndex = 11;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -170,11 +182,11 @@ namespace View
                     cboPro.Text = "";
                     cboCo.Text = "";
                     dateTimePickerRa.Text = "";
-                    tId.Focus();
-                
-            
+                    tId.Focus();    
         
         }
+
+        
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
@@ -303,6 +315,84 @@ namespace View
 
                 }
             }
+        }
+
+        private void dgvRappatries_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvRappatries_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tId.Text = dgvRappatries.SelectedRows[0].Cells[0].Value.ToString();
+            tnbe.Text= dgvRappatries.SelectedRows[0].Cells[1].Value.ToString();
+            tNom.Text = dgvRappatries.SelectedRows[0].Cells[11].Value.ToString();
+            tNp.Text = dgvRappatries.SelectedRows[0].Cells[2].Value.ToString();
+            tNm.Text = dgvRappatries.SelectedRows[0].Cells[3].Value.ToString();
+            cboPro.Text = dgvRappatries.SelectedRows[0].Cells[4].Value.ToString();
+            cboCo.Text = dgvRappatries.SelectedRows[0].Cells[5].Value.ToString();
+            dateTimePickerRa.Text = dgvRappatries.SelectedRows[0].Cells[6].Value.ToString();
+            tLn.Text = dgvRappatries.SelectedRows[0].Cells[7].Value.ToString();
+
+
+            if (dgvRappatries.SelectedRows[0].Cells[8].Value.ToString() == "Celibataire") {
+                rbtnCelibataire.Checked = true;
+                rbtnDivorce.Checked = false;
+                rbtnMarie.Checked = false;
+                rbtnVeuf.Checked = false;
+            }
+            else if (dgvRappatries.SelectedRows[0].Cells[8].Value.ToString() == "Marié")
+            {
+                rbtnMarie.Checked = true;
+                rbtnCelibataire.Checked = false;
+                rbtnDivorce.Checked = false;
+                rbtnVeuf.Checked = false;
+            }
+            else if (dgvRappatries.SelectedRows[0].Cells[8].Value.ToString() == "Veuf")
+            {
+                rbtnVeuf.Checked = true;
+                rbtnMarie.Checked = false;
+                rbtnCelibataire.Checked = false;
+                rbtnDivorce.Checked = false;
+               
+            }
+            else if (dgvRappatries.SelectedRows[0].Cells[8].Value.ToString() == "Divorcé")
+            {
+                rbtnDivorce.Checked = true;
+                rbtnVeuf.Checked = false;
+                rbtnMarie.Checked = false;
+                rbtnCelibataire.Checked = false;
+                
+            }
+            else
+            {
+                rbtnDivorce.Checked = false;
+                rbtnVeuf.Checked = false;
+                rbtnMarie.Checked = false;
+                rbtnCelibataire.Checked = false;
+            }
+
+            if (dgvRappatries.SelectedRows[0].Cells[9].Value.ToString() == "Masculin")
+            {
+
+                rbtnMasculin.Checked = true;
+                rbtnFeminin.Checked = false;
+
+
+            }
+            else if (dgvRappatries.SelectedRows[0].Cells[9].Value.ToString() == "Feminin")
+            {
+                rbtnFeminin.Checked = true;
+                rbtnMasculin.Checked = false;
+            }
+            else
+            {
+                rbtnMasculin.Checked = false;
+                rbtnFeminin.Checked = false;
+            }
+            //gbGenre.Text = dgvRappatries.SelectedRows[0].Cells[9].Value.ToString();
+            tPren.Text = dgvRappatries.SelectedRows[0].Cells[10].Value.ToString();
+        
         }
 
         }

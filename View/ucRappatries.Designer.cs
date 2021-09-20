@@ -38,7 +38,7 @@
             this.rbtnFeminin = new System.Windows.Forms.RadioButton();
             this.gbEC = new System.Windows.Forms.GroupBox();
             this.rbtnDivorce = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rbtnVeuf = new System.Windows.Forms.RadioButton();
             this.rbtnMarie = new System.Windows.Forms.RadioButton();
             this.rbtnCelibataire = new System.Windows.Forms.RadioButton();
             this.lblNomPR = new System.Windows.Forms.Label();
@@ -152,7 +152,7 @@
             // gbEC
             // 
             this.gbEC.Controls.Add(this.rbtnDivorce);
-            this.gbEC.Controls.Add(this.radioButton5);
+            this.gbEC.Controls.Add(this.rbtnVeuf);
             this.gbEC.Controls.Add(this.rbtnMarie);
             this.gbEC.Controls.Add(this.rbtnCelibataire);
             this.gbEC.Location = new System.Drawing.Point(438, 66);
@@ -173,16 +173,16 @@
             this.rbtnDivorce.Text = "Divorcé";
             this.rbtnDivorce.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rbtnVeuf
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(112, 25);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(47, 17);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Veuf";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbtnVeuf.AutoSize = true;
+            this.rbtnVeuf.Location = new System.Drawing.Point(112, 25);
+            this.rbtnVeuf.Name = "rbtnVeuf";
+            this.rbtnVeuf.Size = new System.Drawing.Size(47, 17);
+            this.rbtnVeuf.TabIndex = 4;
+            this.rbtnVeuf.TabStop = true;
+            this.rbtnVeuf.Text = "Veuf";
+            this.rbtnVeuf.UseVisualStyleBackColor = true;
             // 
             // rbtnMarie
             // 
@@ -421,6 +421,8 @@
             this.dgvRappatries.Name = "dgvRappatries";
             this.dgvRappatries.Size = new System.Drawing.Size(966, 210);
             this.dgvRappatries.TabIndex = 30;
+            this.dgvRappatries.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRappatries_CellClick);
+            this.dgvRappatries.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRappatries_CellContentClick);
             // 
             // zonerecherche
             // 
@@ -498,7 +500,7 @@
         private System.Windows.Forms.RadioButton rbtnMasculin;
         private System.Windows.Forms.RadioButton rbtnFeminin;
         private System.Windows.Forms.RadioButton rbtnDivorce;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton rbtnVeuf;
         private System.Windows.Forms.RadioButton rbtnMarie;
         private System.Windows.Forms.RadioButton rbtnCelibataire;
         private System.Windows.Forms.TextBox tId;
