@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Controller;
 using Model;
+using Controller;
 using System.Collections;
 
 namespace View

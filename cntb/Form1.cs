@@ -45,5 +45,10 @@ namespace cntb
             this.HomePanel.Controls.Clear();
             this.HomePanel.Controls.Add(parcelle);
         }
+
+        private void donneessDeBaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
