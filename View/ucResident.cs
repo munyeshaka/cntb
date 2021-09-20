@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using Controller;
-using Controller;
 using Model;
 
 namespace View
