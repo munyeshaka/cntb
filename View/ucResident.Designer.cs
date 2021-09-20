@@ -319,6 +319,7 @@
             this.dgvResident.Size = new System.Drawing.Size(959, 257);
             this.dgvResident.TabIndex = 26;
             this.dgvResident.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellClick);
+            this.dgvResident.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellClick);
             // 
             // btnActualiser
             // 

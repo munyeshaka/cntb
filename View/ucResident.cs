@@ -318,52 +318,56 @@ namespace View
 
         private void dgvResident_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            tLieuNaissance.Text = dgvResident.SelectedRows[0].Cells[0].Value.ToString();
-            coNationnalite.Text = dgvResident.SelectedRows[0].Cells[1].Value.ToString();
-            tcni.Text = dgvResident.SelectedRows[0].Cells[2].Value.ToString();
-            tprenom.Text = dgvResident.SelectedRows[0].Cells[3].Value.ToString();
+            //dgvResident.ColumnCount = 5;
+            if (dgvResident.SelectedRows.Count > 0)
+            {
+                tLieuNaissance.Text = dgvResident.SelectedRows[0].Cells[0].Value.ToString();
+                coNationnalite.Text = dgvResident.SelectedRows[0].Cells[1].Value.ToString();
+                tcni.Text = dgvResident.SelectedRows[0].Cells[2].Value.ToString();
+                tprenom.Text = dgvResident.SelectedRows[0].Cells[3].Value.ToString();
 
-            tprenom.Text = dgvResident.SelectedRows[0].Cells[6].Value.ToString();
-            tnom.Text = dgvResident.SelectedRows[0].Cells[7].Value.ToString();
+                tprenom.Text = dgvResident.SelectedRows[0].Cells[6].Value.ToString();
+                tnom.Text = dgvResident.SelectedRows[0].Cells[7].Value.ToString();
 
-            if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Celibataire")
-            {
-                rCelibataire.Checked = true;
-                rDivorce.Checked = false;
-                rMarie.Checked = false;
-                rVeuf.Checked = false;
-            }
-            else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Marie")
-            {
-                rCelibataire.Checked = false;
-                rDivorce.Checked = false;
-                rMarie.Checked = true;
-                rVeuf.Checked = false;
-            }
-            else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Veuf")
-            {
-                rCelibataire.Checked = false;
-                rDivorce.Checked = false;
-                rMarie.Checked = false;
-                rVeuf.Checked = true;
-            }
-            else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Divorce")
-            {
-                rCelibataire.Checked = false;
-                rDivorce.Checked = true;
-                rMarie.Checked = false;
-                rVeuf.Checked = false;
-            }
+                if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Celibataire")
+                {
+                    rCelibataire.Checked = true;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = false;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Marie")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = true;
+                    rVeuf.Checked = false;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Veuf")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = true;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Divorce")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = true;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = false;
+                }
 
-            if (dgvResident.SelectedRows[0].Cells[5].Value.ToString() == "Homme")
-            {
-                rFemme.Checked = false;
-                rHomme.Checked = true;
-            }
-            else if (dgvResident.SelectedRows[0].Cells[5].Value.ToString() == "Femme")
-            {
-                rFemme.Checked = true;
-                rHomme.Checked = false;
+                if (dgvResident.SelectedRows[0].Cells[5].Value.ToString() == "Homme")
+                {
+                    rFemme.Checked = false;
+                    rHomme.Checked = true;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[5].Value.ToString() == "Femme")
+                {
+                    rFemme.Checked = true;
+                    rHomme.Checked = false;
+                }
             }
         }
 
