@@ -191,10 +191,10 @@ namespace View
                         MessageBox.Show(ex.Message);
                     }
 
-                    MessageBox.Show("Votre resident a ete supprime ...");
+                    MessageBox.Show("Votre donnees a ete supprime ...");
                     break;
                 case DialogResult.No:
-                    MessageBox.Show("Votre resident n'a pas ete supprime ...");
+                    MessageBox.Show("Votre donnees n'a pas ete supprime ...");
                     break;
 
             }
@@ -214,7 +214,7 @@ namespace View
                 case DialogResult.Yes:
                     r = new Resident();
                     r.Nom = tnom.Text;
-                    r.Cni = GenererMatri(r);
+                    r.Cni = tcni.Text;
                     r.Prenom = tprenom.Text;
 
                     foreach (Control c in gGenre.Controls)
@@ -242,15 +242,15 @@ namespace View
                         int line = Factory.modifierResident(r);
 
                         if (line != 0)
-                            MessageBox.Show("Modification reussi");
-                            Actualiser();
-                            Reinitialiser();
+                            MessageBox.Show("Modification Reussie");
+                       // Actualiser();
+                       // Reinitialiser();
                     }
-
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
+
                     MessageBox.Show("Votre donnees a ete modifiees !!");
                     break;
                 case DialogResult.No:
@@ -368,6 +368,60 @@ namespace View
                     rFemme.Checked = true;
                     rHomme.Checked = false;
                 }
+            }
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            Application.EnableVisualStyles();
+            DialogResult dr = MessageBox.Show("Voulez-vous vraiment Modifier ces donnees??", "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    r = new Resident();
+                    r.Nom = tnom.Text;
+                    r.Cni = GenererMatri(r);
+                    r.Prenom = tprenom.Text;
+
+                    foreach (Control c in gGenre.Controls)
+                    {
+                        if (((RadioButton)c).Checked)
+                        {
+                            r.Genre = ((RadioButton)c).Text;
+                        }
+                    }
+
+                    foreach (Control c in gEtatCivil.Controls)
+                    {
+                        if (((RadioButton)c).Checked)
+                        {
+                            r.EtatCivil = ((RadioButton)c).Text;
+                        }
+                    }
+                    r.Nationnalite = coNationnalite.SelectedItem.ToString();
+                    r.DateNaissance = tdateNaissance.Text;
+                    r.LieuNaissance = tLieuNaissance.Text;
+
+
+                    try
+                    {
+                        int line = Factory.modifierResident(r);
+
+                        if (line != 0)
+                            MessageBox.Show("Modification reussi");
+                        Actualiser();
+                        Reinitialiser();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MessageBox.Show("Votre donnees a ete modifiees !!");
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("Votre donnees n'a pas ete modifiees!!");
+                    break;
             }
         }
 

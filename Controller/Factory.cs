@@ -135,7 +135,9 @@ namespace Controller
             commande.Connection = conn;
 
             commande.CommandText = "update dbo.Residents set cni_Residents=@cni, nom_Residents=@no, prenom_Residents=@pre, genre_Residents=@g, etatCivil_Residents=@eta, nationalite_Residents=@na, dateNaissance_Residents=@da, lieuNaissance_Residents=@li where cni_Residents=@cni";
+            //commande.CommandText = "update dbo.Residents set cni_Residents='" + r.Cni + "', nom_Residents='" + r.Nom + "', prenom_Residents='" + r.Prenom + "', genre_Residents='" + r.Genre + "', etatCivil_Residents='" + r.EtatCivil + "', nationalite_Residents='" + r.Nationnalite + "', dateNaissance_Residents='" + r.DateNaissance + "', lieuNaissance_Residents='" + r.LieuNaissance + "' where cni_Residents='" + r.Cni + "'";
 
+            
             commande.Parameters.Add(new SqlParameter("@cni", r.Cni));
             commande.Parameters.Add(new SqlParameter("@no", r.Nom));
             commande.Parameters.Add(new SqlParameter("@pre", r.Prenom));
@@ -144,7 +146,7 @@ namespace Controller
             commande.Parameters.Add(new SqlParameter("@na", r.Nationnalite));
             commande.Parameters.Add(new SqlParameter("@da", r.DateNaissance));
             commande.Parameters.Add(new SqlParameter("@li", r.LieuNaissance));
-
+            
 
             int n = commande.ExecuteNonQuery();
             return n;
