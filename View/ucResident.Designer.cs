@@ -316,7 +316,7 @@
             // 
             this.dgvResident.Location = new System.Drawing.Point(63, 307);
             this.dgvResident.Name = "dgvResident";
-            this.dgvResident.Size = new System.Drawing.Size(853, 257);
+            this.dgvResident.Size = new System.Drawing.Size(959, 257);
             this.dgvResident.TabIndex = 26;
             this.dgvResident.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellClick);
             // 

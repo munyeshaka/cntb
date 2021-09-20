@@ -14,14 +14,10 @@ namespace Controller
         public static ArrayList listResident = new ArrayList();
         public static ArrayList listRappatries = new ArrayList();
 
-<<<<<<< HEAD
-        //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
-        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
-=======
         //public static SqlConnection conn = new SqlConnection("Data Source=AUGUSTIN;Initial Catalog=cntb;Integrated Security=True");
         public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
         //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
->>>>>>> a2586a2d6c85610b26cc512d919fab225535a3a4
+
 
         //=======================AFFICHER Resident==============
 
@@ -131,21 +127,23 @@ namespace Controller
         }//=======================END SUPRRIMER RESIDENT==============
 
         //======================= MODIFIER RESIDENT==============
-        public static int modifierResident(Resident re)
+        public static int modifierResident(Resident r)
         {
 
             if (conn.State != System.Data.ConnectionState.Open) conn.Open();
             SqlCommand commande = new SqlCommand();
             commande.Connection = conn;
-            commande.CommandText = "update dbo.Residents set cni_Residents=@cni, nom_Residents=@nom, prenom_Residents=@prenom, genre_Residents=@genre, etatCivil_Residents=@etatcivil, nationalite_Residents=@na, dateNaissance_Residents=@da, lieuNaissance_Residents=@lieun where cni_Residents=@cni";
-            commande.Parameters.Add(new SqlParameter("@cni", re.Cni));
-            commande.Parameters.Add(new SqlParameter("@nom", re.Nom));
-            commande.Parameters.Add(new SqlParameter("@prenom", re.Prenom));
-            commande.Parameters.Add(new SqlParameter("@genre", re.Genre));
-            commande.Parameters.Add(new SqlParameter("@etatcivil", re.EtatCivil));
-            commande.Parameters.Add(new SqlParameter("@na", re.Nationnalite));
-            commande.Parameters.Add(new SqlParameter("@da", re.DateNaissance));
-            commande.Parameters.Add(new SqlParameter("@lieun", re.LieuNaissance));
+
+            commande.CommandText = "update dbo.Residents set cni_Residents=@cni, nom_Residents=@no, prenom_Residents=@pre, genre_Residents=@g, etatCivil_Residents=@eta, nationalite_Residents=@na, dateNaissance_Residents=@da, lieuNaissance_Residents=@li where cni_Residents=@cni";
+
+            commande.Parameters.Add(new SqlParameter("@cni", r.Cni));
+            commande.Parameters.Add(new SqlParameter("@no", r.Nom));
+            commande.Parameters.Add(new SqlParameter("@pre", r.Prenom));
+            commande.Parameters.Add(new SqlParameter("@g", r.Genre));
+            commande.Parameters.Add(new SqlParameter("@eta", r.EtatCivil));
+            commande.Parameters.Add(new SqlParameter("@na", r.Nationnalite));
+            commande.Parameters.Add(new SqlParameter("@da", r.DateNaissance));
+            commande.Parameters.Add(new SqlParameter("@li", r.LieuNaissance));
 
 
             int n = commande.ExecuteNonQuery();

@@ -10,7 +10,7 @@ namespace Model
     {
         string parcelle, rappatrie;
 
-        public string Parcelle { get => parcelle; set => parcelle = value; }
-        public string Rappatrie { get => rappatrie; set => rappatrie = value; }
+        //public string Parcelle { get => parcelle; set => parcelle = value; }
+        //public string Rappatrie { get => rappatrie; set => rappatrie = value; }
     }
 }

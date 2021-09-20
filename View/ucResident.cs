@@ -237,7 +237,6 @@ namespace View
                     r.LieuNaissance = tLieuNaissance.Text;
 
 
-
                     try
                     {
                         int line = Factory.modifierResident(r);
