@@ -111,12 +111,25 @@ namespace View
                     tcni.Text = "";
                     tnom.Text = "";
                     tprenom.Text = "";
-                    gGenre.Text = "";
-                    gEtatCivil.Text = "";
+
                     coNationnalite.Text = "";
                     tdateNaissance.Text = "";
                     tLieuNaissance.Text = "";
                     tRechercher.Text = "";
+
+                    foreach (Control c in gGenre.Controls)
+                    {
+                        ((RadioButton)c).Checked = false;
+                        
+                    }
+
+                    foreach (Control c in gEtatCivil.Controls)
+                    {
+                       ((RadioButton)c).Checked = false;
+                        
+                    }
+
+                    
 
         }
         private void btnRechercher_Click(object sender, EventArgs e)
@@ -178,10 +191,10 @@ namespace View
                         MessageBox.Show(ex.Message);
                     }
 
-                    MessageBox.Show("Votre resident a ete supprime ...");
+                    MessageBox.Show("Votre donnees a ete supprime ...");
                     break;
                 case DialogResult.No:
-                    MessageBox.Show("Votre resident n'a pas ete supprime ...");
+                    MessageBox.Show("Votre donnees n'a pas ete supprime ...");
                     break;
 
             }
@@ -193,6 +206,172 @@ namespace View
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
+        {
+            Application.EnableVisualStyles();
+            DialogResult dr = MessageBox.Show("Voulez-vous vraiment Modifier ces donnees??", "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    r = new Resident();
+                    r.Nom = tnom.Text;
+                    r.Cni = tcni.Text;
+                    r.Prenom = tprenom.Text;
+
+                    foreach (Control c in gGenre.Controls)
+                    {
+                        if (((RadioButton)c).Checked)
+                        {
+                            r.Genre = ((RadioButton)c).Text;
+                        }
+                    }
+
+                    foreach (Control c in gEtatCivil.Controls)
+                    {
+                        if (((RadioButton)c).Checked)
+                        {
+                            r.EtatCivil = ((RadioButton)c).Text;
+                        }
+                    }
+                    r.Nationnalite = coNationnalite.SelectedItem.ToString();
+                    r.DateNaissance = tdateNaissance.Text;
+                    r.LieuNaissance = tLieuNaissance.Text;
+
+
+                    try
+                    {
+                        int line = Factory.modifierResident(r);
+
+                        if (line != 0)
+                            MessageBox.Show("Modification Reussie");
+                       // Actualiser();
+                       // Reinitialiser();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    MessageBox.Show("Votre donnees a ete modifiees !!");
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("Votre donnees n'a pas ete modifiees!!");
+                    break;
+            }
+
+        }
+
+        private void dgvResident_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           /* if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvResident.Rows[e.RowIndex];
+                tLieuNaissance.Text = row.Cells["DateNaissance"].Value.ToString();
+                coNationnalite.Text = row.Cells["Nationnalite"].Value.ToString();
+                tcni.Text = row.Cells["Cni"].Value.ToString();
+                tprenom.Text = row.Cells["LieuNaissance"].Value.ToString();
+                //gEtatCivil.Text = row.Cells["EtatCivil"].Value.ToString();
+                gGenre.Text = row.Cells["Genre"].Value.ToString();
+                tprenom.Text = row.Cells["Prenom"].Value.ToString();
+                tnom.Text = row.Cells["Nom"].Value.ToString();
+
+                if (row.Cells["EtatCivil"].Value.ToString() == "Celibataire")
+                {
+                    rCelibataire.Checked = true;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = false;
+                }
+                else if (row.Cells["EtatCivil"].Value.ToString() == "Marie")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = true;
+                    rVeuf.Checked = false;
+                }
+                else if (row.Cells["EtatCivil"].Value.ToString() == "Veuf")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = true;
+                }
+                else if (row.Cells["EtatCivil"].Value.ToString() == "Divorce")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = true;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = false;
+                }
+
+                if ( row.Cells["Genre"].Value.ToString() == "Homme")
+                {
+                    rFemme.Checked = false;
+                    rHomme.Checked = true;
+                }
+                else if ( row.Cells["Genre"].Value.ToString() == "Femme")
+                {
+                    rFemme.Checked = true;
+                    rHomme.Checked = false;
+                }
+            }*/
+        }
+
+        private void dgvResident_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //dgvResident.ColumnCount = 5;
+            if (dgvResident.SelectedRows.Count > 0)
+            {
+                tLieuNaissance.Text = dgvResident.SelectedRows[0].Cells[0].Value.ToString();
+                coNationnalite.Text = dgvResident.SelectedRows[0].Cells[1].Value.ToString();
+                tcni.Text = dgvResident.SelectedRows[0].Cells[2].Value.ToString();
+                tprenom.Text = dgvResident.SelectedRows[0].Cells[3].Value.ToString();
+
+                tprenom.Text = dgvResident.SelectedRows[0].Cells[6].Value.ToString();
+                tnom.Text = dgvResident.SelectedRows[0].Cells[7].Value.ToString();
+
+                if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Celibataire")
+                {
+                    rCelibataire.Checked = true;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = false;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Marie")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = true;
+                    rVeuf.Checked = false;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Veuf")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = false;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = true;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[4].Value.ToString() == "Divorce")
+                {
+                    rCelibataire.Checked = false;
+                    rDivorce.Checked = true;
+                    rMarie.Checked = false;
+                    rVeuf.Checked = false;
+                }
+
+                if (dgvResident.SelectedRows[0].Cells[5].Value.ToString() == "Homme")
+                {
+                    rFemme.Checked = false;
+                    rHomme.Checked = true;
+                }
+                else if (dgvResident.SelectedRows[0].Cells[5].Value.ToString() == "Femme")
+                {
+                    rFemme.Checked = true;
+                    rHomme.Checked = false;
+                }
+            }
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
         {
             Application.EnableVisualStyles();
             DialogResult dr = MessageBox.Show("Voulez-vous vraiment Modifier ces donnees??", "", MessageBoxButtons.YesNo);
@@ -224,15 +403,14 @@ namespace View
                     r.LieuNaissance = tLieuNaissance.Text;
 
 
-
                     try
                     {
                         int line = Factory.modifierResident(r);
 
                         if (line != 0)
                             MessageBox.Show("Modification reussi");
-                            Actualiser();
-                            Reinitialiser();
+                        Actualiser();
+                        Reinitialiser();
                     }
 
                     catch (Exception ex)
@@ -244,23 +422,6 @@ namespace View
                 case DialogResult.No:
                     MessageBox.Show("Votre donnees n'a pas ete modifiees!!");
                     break;
-            }
-
-        }
-
-        private void dgvResident_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dgvResident.Rows[e.RowIndex];
-                tLieuNaissance.Text = row.Cells["DateNaissance"].Value.ToString();
-                coNationnalite.Text = row.Cells["Nationnalite"].Value.ToString();
-                tcni.Text = row.Cells["Cni"].Value.ToString();
-                tprenom.Text = row.Cells["LieuNaissance"].Value.ToString();
-                gEtatCivil.Text = row.Cells["EtatCivil"].Value.ToString();
-                gGenre.Text = row.Cells["Genre"].Value.ToString();
-                tprenom.Text = row.Cells["Prenom"].Value.ToString();
-                tnom.Text = row.Cells["Nom"].Value.ToString();
             }
         }
 

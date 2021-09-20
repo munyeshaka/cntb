@@ -56,6 +56,7 @@
             this.tdateNaissance = new System.Windows.Forms.DateTimePicker();
             this.dgvResident = new System.Windows.Forms.DataGridView();
             this.btnActualiser = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gGenre.SuspendLayout();
             this.gEtatCivil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResident)).BeginInit();
@@ -315,9 +316,10 @@
             // 
             this.dgvResident.Location = new System.Drawing.Point(63, 307);
             this.dgvResident.Name = "dgvResident";
-            this.dgvResident.Size = new System.Drawing.Size(853, 257);
+            this.dgvResident.Size = new System.Drawing.Size(959, 257);
             this.dgvResident.TabIndex = 26;
-            this.dgvResident.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellContentClick);
+            this.dgvResident.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellClick);
+            this.dgvResident.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellClick);
             // 
             // btnActualiser
             // 
@@ -398,5 +400,6 @@
         private System.Windows.Forms.DateTimePicker tdateNaissance;
         private System.Windows.Forms.DataGridView dgvResident;
         private System.Windows.Forms.Button btnActualiser;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
