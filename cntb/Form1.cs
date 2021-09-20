@@ -38,5 +38,12 @@ namespace cntb
             this.HomePanel.Controls.Clear();
             this.HomePanel.Controls.Add(reclamer);
         }
+
+        private void parcelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucParcelle parcelle = new ucParcelle();
+            this.HomePanel.Controls.Clear();
+            this.HomePanel.Controls.Add(parcelle);
+        }
     }
 }

@@ -32,8 +32,9 @@
             this.donneessDeBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.residentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rappatriésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reclamerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.parcelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.donneessDeBaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.residentToolStripMenuItem,
             this.rappatriésToolStripMenuItem,
-            this.reclamerToolStripMenuItem});
+            this.reclamerToolStripMenuItem,
+            this.parcelleToolStripMenuItem});
             this.donneessDeBaseToolStripMenuItem.Name = "donneessDeBaseToolStripMenuItem";
             this.donneessDeBaseToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.donneessDeBaseToolStripMenuItem.Text = "Données de base";
@@ -57,16 +59,23 @@
             // residentToolStripMenuItem
             // 
             this.residentToolStripMenuItem.Name = "residentToolStripMenuItem";
-            this.residentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.residentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.residentToolStripMenuItem.Text = "Residents";
             this.residentToolStripMenuItem.Click += new System.EventHandler(this.residentToolStripMenuItem_Click);
             // 
             // rappatriésToolStripMenuItem
             // 
             this.rappatriésToolStripMenuItem.Name = "rappatriésToolStripMenuItem";
-            this.rappatriésToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rappatriésToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rappatriésToolStripMenuItem.Text = "Rappatriés";
             this.rappatriésToolStripMenuItem.Click += new System.EventHandler(this.rappatriésToolStripMenuItem_Click);
+            // 
+            // reclamerToolStripMenuItem
+            // 
+            this.reclamerToolStripMenuItem.Name = "reclamerToolStripMenuItem";
+            this.reclamerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reclamerToolStripMenuItem.Text = "Reclamer";
+            this.reclamerToolStripMenuItem.Click += new System.EventHandler(this.reclamerToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -78,12 +87,12 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // reclamerToolStripMenuItem
+            // parcelleToolStripMenuItem
             // 
-            this.reclamerToolStripMenuItem.Name = "reclamerToolStripMenuItem";
-            this.reclamerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reclamerToolStripMenuItem.Text = "Reclamer";
-            this.reclamerToolStripMenuItem.Click += new System.EventHandler(this.reclamerToolStripMenuItem_Click);
+            this.parcelleToolStripMenuItem.Name = "parcelleToolStripMenuItem";
+            this.parcelleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.parcelleToolStripMenuItem.Text = "Parcelle";
+            this.parcelleToolStripMenuItem.Click += new System.EventHandler(this.parcelleToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -110,5 +119,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem rappatriésToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reclamerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parcelleToolStripMenuItem;
     }
 }
