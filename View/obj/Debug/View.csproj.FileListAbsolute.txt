@@ -37,3 +37,4 @@ C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.csproj.CoreCompileInputs
 C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.dll
 C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.pdb
+C:\Users\SMS\ProjetGit\cntb\View\obj\Debug\View.ucReclamer.resources
