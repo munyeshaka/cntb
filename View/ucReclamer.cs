@@ -40,6 +40,14 @@ namespace View
 
         }
 
+        void recuperReclamer(Reclamer d)
+        {
+            //int.Parse(txtnumero.Text = d.Id).ToString();
+
+            
+
+        }
+
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             rec = new Reclamer();

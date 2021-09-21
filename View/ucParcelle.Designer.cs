@@ -110,6 +110,7 @@
             this.btnSupprimer.TabIndex = 54;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click_1);
             // 
             // btnModifier
             // 
@@ -119,6 +120,7 @@
             this.btnModifier.TabIndex = 53;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click_1);
             // 
             // btnAjouter
             // 

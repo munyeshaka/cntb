@@ -498,6 +498,37 @@ namespace Controller
         }//=======================Fin SUPRRIMER RECLAMER==============
 
 
+        //=======================RECHERCHE RECLAMER==============
+
+        public static Reclamer getReclamerById(string id)
+        {
+            ArrayList par = new ArrayList();
+            Reclamer rec = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Reclamer where id=@i";
+            commande.Parameters.Add(new SqlParameter("@i", id));
+            SqlDataReader reader = commande.ExecuteReader();
+
+            if (reader.Read())
+            {
+                rec = new Reclamer();
+
+               rec.Id = int.Parse(reader["id"].ToString());
+                
+
+                par.Add(rec);
+            }
+
+            reader.Close();
+            conn.Close();
+            return rec;
+
+        }//=======================END RECHERCHE RECLAMER==============
+
+
 
     }
 }

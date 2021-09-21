@@ -179,5 +179,15 @@ namespace View
                     break;
             }
         }
+
+        private void btnSupprimer_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModifier_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
