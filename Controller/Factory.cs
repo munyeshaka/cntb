@@ -441,7 +441,7 @@ namespace Controller
             while (reader.Read())
             {
                rec = new Reclamer();
-                rec.Id= reader["id"].ToString();
+                rec.Id= int.Parse(reader["id"].ToString());
                 rec.Idparcelle = reader["province_Parcelle"].ToString();
                rec.IdRappatries = reader["id_Rappatries"].ToString();
                 rec.Rappatrie = reader["nom"].ToString();
@@ -459,6 +459,29 @@ namespace Controller
             return rappat;
 
         }//=======================Fin AFFICHER RECLAMER==============
+
+
+        //=======================INSERER RECLAMER==============
+
+        public static int insertReclamer(Reclamer p)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "insert into dbo.Reclamer (province_Parcelle,id_Rappatries,nom,are,numero)  values (@1pro,@2rap,@3,@4,@5)";
+
+            commande.Parameters.Add(new SqlParameter("@1pro", p.Pa.Province));
+            commande.Parameters.Add(new SqlParameter("@2rap", p.Ra.Id));
+            commande.Parameters.Add(new SqlParameter("@3", p.Ra.nomComplet));
+            commande.Parameters.Add(new SqlParameter("@4", p.Pa.Taille));
+            commande.Parameters.Add(new SqlParameter("@5", p.Pa.Numero));
+            
+            int i = commande.ExecuteNonQuery();
+
+            return i;
+        }
+        //=======================Fin INSERER RECLAMER==============
 
 
     }

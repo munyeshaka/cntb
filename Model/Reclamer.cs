@@ -8,10 +8,11 @@ namespace Model
 {
     public class Reclamer
     {
-        string id,idparcelle, idRappatries,rappatrie,numeroParcelle,areParcelle;
+        string idparcelle, idRappatries,rappatrie,numeroParcelle,areParcelle;
         Rappatries ra;
         Parcelle pa;
-        public string Id { get => id; set => id = value; }
+        int id;
+        public int Id { get => id; set => id = value; }
         public string Idparcelle { get => idparcelle; set => idparcelle = value; }
         public string IdRappatries { get => idRappatries; set => idRappatries = value; }
         public string Rappatrie { get => rappatrie; set => rappatrie = value; }

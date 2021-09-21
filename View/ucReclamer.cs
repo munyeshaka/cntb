@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using Controller;
+using Model;
 
 namespace View
 {
     public partial class ucReclamer : UserControl
     {
         ArrayList list = new ArrayList();
+        Reclamer rec = null;
+        Parcelle Pa = null;
         public ucReclamer()
         {
             InitializeComponent();
@@ -35,6 +38,12 @@ namespace View
             dgvResident.DataSource = list;
 
 
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            rec = new Reclamer();
+            rec.Pa = comboBoxParcelle.SelectedItem().;
         }
     }
 }
