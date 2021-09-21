@@ -321,6 +321,7 @@ namespace View
             //dgvResident.ColumnCount = 5;
             if (dgvResident.SelectedRows.Count > 0)
             {
+                tRechercher.Text = "";
                 tLieuNaissance.Text = dgvResident.SelectedRows[0].Cells[0].Value.ToString();
                 coNationnalite.Text = dgvResident.SelectedRows[0].Cells[1].Value.ToString();
                 tcni.Text = dgvResident.SelectedRows[0].Cells[2].Value.ToString();
@@ -423,6 +424,11 @@ namespace View
                     MessageBox.Show("Votre donnees n'a pas ete modifiees!!");
                     break;
             }
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
 
     }

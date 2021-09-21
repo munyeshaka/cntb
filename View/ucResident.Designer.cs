@@ -57,6 +57,7 @@
             this.dgvResident = new System.Windows.Forms.DataGridView();
             this.btnActualiser = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.gGenre.SuspendLayout();
             this.gEtatCivil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResident)).BeginInit();
@@ -290,7 +291,7 @@
             // 
             // btnRechercher
             // 
-            this.btnRechercher.Location = new System.Drawing.Point(824, 263);
+            this.btnRechercher.Location = new System.Drawing.Point(794, 265);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(75, 23);
             this.btnRechercher.TabIndex = 23;
@@ -300,7 +301,7 @@
             // 
             // tRechercher
             // 
-            this.tRechercher.Location = new System.Drawing.Point(922, 266);
+            this.tRechercher.Location = new System.Drawing.Point(899, 267);
             this.tRechercher.Name = "tRechercher";
             this.tRechercher.Size = new System.Drawing.Size(100, 20);
             this.tRechercher.TabIndex = 24;
@@ -314,9 +315,9 @@
             // 
             // dgvResident
             // 
-            this.dgvResident.Location = new System.Drawing.Point(63, 307);
+            this.dgvResident.Location = new System.Drawing.Point(162, 307);
             this.dgvResident.Name = "dgvResident";
-            this.dgvResident.Size = new System.Drawing.Size(959, 257);
+            this.dgvResident.Size = new System.Drawing.Size(837, 257);
             this.dgvResident.TabIndex = 26;
             this.dgvResident.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellClick);
             this.dgvResident.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellClick);
@@ -330,6 +331,10 @@
             this.btnActualiser.Text = "Actualiser";
             this.btnActualiser.UseVisualStyleBackColor = true;
             this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             // 
             // ucResident
             // 
@@ -401,5 +406,6 @@
         private System.Windows.Forms.DataGridView dgvResident;
         private System.Windows.Forms.Button btnActualiser;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
