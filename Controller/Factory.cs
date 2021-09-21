@@ -14,8 +14,10 @@ namespace Controller
         public static ArrayList listResident = new ArrayList();
         public static ArrayList listRappatries = new ArrayList();
 
-        //public static SqlConnection conn = new SqlConnection("Data Source=AUGUSTIN;Initial Catalog=cntb;Integrated Security=True");
-        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
+
+        public static SqlConnection conn = new SqlConnection("Data Source=AUGUSTIN;Initial Catalog=cntb;Integrated Security=True");
+        //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
+        //public static SqlConnection conn = new SqlConnection("Data Source=FYFO;Initial Catalog=cntb;Integrated Security=True");
         //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
 
 
@@ -291,6 +293,241 @@ namespace Controller
             conn.Close();
             return rapp;
         }
+
+        //=======================AFFICHER Parcelle==============
+
+        public static ArrayList getParcelle()
+        {
+            ArrayList parcelle = new ArrayList();
+            Parcelle p = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Parcelle";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                p = new Parcelle();
+                p.Id = reader["id_Parcelle"].ToString();
+                p.Province = reader["province_Parcelle"].ToString();
+                p.Commune = reader["commune_Parcelle"].ToString();
+                p.Rue = reader["rue_Parcelle"].ToString();
+                p.Numero = reader["numero_Parcelle"].ToString();
+                p.Taille = reader["nombreAres_Parcelle"].ToString();
+                p.Batie = reader["batieVraiFaux_Parcelle"].ToString();
+                p.CniResident = reader["cni_Residents"].ToString();
+
+
+                parcelle.Add(p);
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return parcelle;
+
+        }//=======================Fin AFFICHER Parcelle==============
+
+        //=======================INSERER Parcelle==============
+
+        public static int insertParcelle(Parcelle p)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "insert into dbo.Parcelle (id_Parcelle, province_Parcelle, commune_Parcelle, rue_Parcelle, numero_Parcelle, nombreAres_Parcelle, batieVraiFaux_Parcelle)  values (@id,@prov,@com,@rue,@num,@taille,@batie)";
+
+            commande.Parameters.Add(new SqlParameter("@id", p.Id));
+            commande.Parameters.Add(new SqlParameter("@prov", p.Province));
+            commande.Parameters.Add(new SqlParameter("@com", p.Commune));
+            commande.Parameters.Add(new SqlParameter("@rue", p.Rue));
+            commande.Parameters.Add(new SqlParameter("@num", p.Numero));
+            commande.Parameters.Add(new SqlParameter("@taille", p.Taille));
+            commande.Parameters.Add(new SqlParameter("@batie", p.Batie));
+
+            int i = commande.ExecuteNonQuery();
+
+            return i;
+        }
+        //=======================Fin INSERER Parcelle==============
+
+        //=======================SUPRRIMER Parcelle==============
+
+        public static int deleteParcelle(string id)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Parcelle where id_Parcelle = @id";
+            commande.Parameters.AddWithValue("@id", id);
+            int d = commande.ExecuteNonQuery();
+            return d;
+        }//=======================Fin SUPRRIMER Parcelle==============
+
+        //======================= MODIFIER Parcelle==============
+        public static int modifyParcelle(Parcelle p)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "update dbo.Parcelle set id_Parcelle=@id, province_Parcelle=@prov, commune_Parcelle=@com, rue_Parcelle=@rue, numero_Parcelle=@num, nombreAres_Parcelle=@taille, batieVraiFaux_Parcelle=@batie where id_Parcelle=@id";
+            commande.Parameters.Add(new SqlParameter("@id", p.Id));
+            commande.Parameters.Add(new SqlParameter("@prov", p.Province));
+            commande.Parameters.Add(new SqlParameter("@com", p.Commune));
+            commande.Parameters.Add(new SqlParameter("@rue", p.Rue));
+            commande.Parameters.Add(new SqlParameter("@num", p.Numero));
+            commande.Parameters.Add(new SqlParameter("@taile", p.Taille));
+            commande.Parameters.Add(new SqlParameter("@batie", p.Batie));
+
+
+
+            int m = commande.ExecuteNonQuery();
+            return m;
+
+        }////=======================Fin MODIFIER Parcelle==============
+
+        //=======================RECHERCHE Parcelle==============
+
+        public static Parcelle getParcelleById(string id)
+        {
+            ArrayList par = new ArrayList();
+            Parcelle p = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Parcelle where id_Parcelle=@i";
+            commande.Parameters.Add(new SqlParameter("@i", id));
+            SqlDataReader reader = commande.ExecuteReader();
+
+            if (reader.Read())
+            {
+                p = new Parcelle();
+
+                p.Id = reader["id_Parcelle"].ToString();
+                p.Province = reader["province_Parcelle"].ToString();
+                p.Commune = reader["commune_Parcelle"].ToString();
+                p.Rue = reader["rue_Parcelle"].ToString();
+                p.Numero = reader["numero_Parcelle"].ToString();
+                p.Taille = reader["nombreAres_Parcelle"].ToString();
+                p.Batie = reader["batieVraiFaux_Parcelle"].ToString();
+                p.CniResident = reader["cni_Residents"].ToString();
+
+                par.Add(p);
+            }
+
+            reader.Close();
+            conn.Close();
+            return p;
+
+        }//=======================END RECHERCHE RESIDENT==============
+
+
+        //=======================AFFICHER RECLAMER==============
+
+        public static ArrayList getReclamer()
+        {
+            ArrayList rappat = new ArrayList();
+            Reclamer rec = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Reclamer";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+               rec = new Reclamer();
+                rec.Id= int.Parse(reader["id"].ToString());
+                rec.Idparcelle = reader["province_Parcelle"].ToString();
+               rec.IdRappatries = reader["id_Rappatries"].ToString();
+                rec.Rappatrie = reader["nom"].ToString();
+                rec.AreParcelle = reader["are"].ToString();
+                rec.NumeroParcelle = reader["numero"].ToString();
+
+
+
+                rappat.Add(rec);
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return rappat;
+
+        }//=======================Fin AFFICHER RECLAMER==============
+
+
+        //=======================INSERER RECLAMER==============
+
+        public static int insertReclamer(Reclamer p)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "insert into dbo.Reclamer (province_Parcelle,id_Rappatries,nom,are,numero)  values (@1pro,@2rap,@3,@4,@5)";
+
+            commande.Parameters.Add(new SqlParameter("@1pro", p.Pa.Province));
+            commande.Parameters.Add(new SqlParameter("@2rap", p.Ra.Id));
+            commande.Parameters.Add(new SqlParameter("@3", p.Ra.nomComplet));
+            commande.Parameters.Add(new SqlParameter("@4", p.Pa.Taille));
+            commande.Parameters.Add(new SqlParameter("@5", p.Pa.Numero));
+            
+            int i = commande.ExecuteNonQuery();
+
+            return i;
+        }
+        //=======================Fin INSERER RECLAMER==============
+
+
+        //=======================SUPRRIMER RECLAMER==============
+
+        public static int deleteReclamer(string id)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Reclamer where id = @id";
+            commande.Parameters.AddWithValue("@id", id);
+            int d = commande.ExecuteNonQuery();
+            return d;
+        }//=======================Fin SUPRRIMER RECLAMER==============
+
+
+        //=======================RECHERCHE RECLAMER==============
+
+        public static Reclamer getReclamerById(string id)
+        {
+            ArrayList par = new ArrayList();
+            Reclamer rec = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Reclamer where id=@i";
+            commande.Parameters.Add(new SqlParameter("@i", id));
+            SqlDataReader reader = commande.ExecuteReader();
+
+            if (reader.Read())
+            {
+                rec = new Reclamer();
+
+               rec.Id = int.Parse(reader["id"].ToString());
+                
+
+                par.Add(rec);
+            }
+
+            reader.Close();
+            conn.Close();
+            return rec;
+
+        }//=======================END RECHERCHE RECLAMER==============
+
 
 
     }
