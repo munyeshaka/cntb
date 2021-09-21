@@ -441,6 +441,7 @@ namespace Controller
             while (reader.Read())
             {
                rec = new Reclamer();
+                rec.Id= reader["id"].ToString();
                 rec.Idparcelle = reader["province_Parcelle"].ToString();
                rec.IdRappatries = reader["id_Rappatries"].ToString();
                 rec.Rappatrie = reader["nom"].ToString();
