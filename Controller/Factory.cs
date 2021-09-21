@@ -484,5 +484,20 @@ namespace Controller
         //=======================Fin INSERER RECLAMER==============
 
 
+        //=======================SUPRRIMER RECLAMER==============
+
+        public static int deleteReclamer(string id)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Reclamer where id = @id";
+            commande.Parameters.AddWithValue("@id", id);
+            int d = commande.ExecuteNonQuery();
+            return d;
+        }//=======================Fin SUPRRIMER RECLAMER==============
+
+
+
     }
 }

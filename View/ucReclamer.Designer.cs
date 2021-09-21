@@ -41,6 +41,8 @@ namespace View
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtnumero = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResident)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +95,7 @@ namespace View
             this.dgvResident.Name = "dgvResident";
             this.dgvResident.Size = new System.Drawing.Size(853, 257);
             this.dgvResident.TabIndex = 33;
+            this.dgvResident.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResident_CellContentClick);
             // 
             // tRechercher
             // 
@@ -118,6 +121,7 @@ namespace View
             this.btnActualiser.TabIndex = 30;
             this.btnActualiser.Text = "Actualiser";
             this.btnActualiser.UseVisualStyleBackColor = true;
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // btnSupprimer
             // 
@@ -127,6 +131,7 @@ namespace View
             this.btnSupprimer.TabIndex = 29;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -147,10 +152,30 @@ namespace View
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(82, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Parcelle";
+            // 
+            // txtnumero
+            // 
+            this.txtnumero.Enabled = false;
+            this.txtnumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnumero.Location = new System.Drawing.Point(190, 90);
+            this.txtnumero.Name = "txtnumero";
+            this.txtnumero.Size = new System.Drawing.Size(33, 24);
+            this.txtnumero.TabIndex = 35;
+            // 
             // ucReclamer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtnumero);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvResident);
             this.Controls.Add(this.tRechercher);
             this.Controls.Add(this.btnRechercher);
@@ -185,5 +210,7 @@ namespace View
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtnumero;
     }
 }

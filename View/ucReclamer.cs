@@ -52,12 +52,56 @@ namespace View
                 if (k != 0)
                     MessageBox.Show("Case successful inserted...");
                 afficher();
-                //clear();
+              clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dgvResident_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvResident.Rows[e.RowIndex];
+                txtnumero.Text = row.Cells["id"].Value.ToString();
+                
+
+            }
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult diaR = MessageBox.Show(" Do you want to delete Claim number " + txtnumero.Text , " Attention !!!! ", MessageBoxButtons.YesNo);
+                if (diaR == DialogResult.Yes)
+                {
+                    int d = Factory.deleteReclamer(txtnumero.Text);
+                    if (d != 0)
+                        MessageBox.Show("Deleted Successful..");
+                    afficher();
+                    clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void clear()
+        {
+            txtnumero.Clear();
+        }
+
+        private void btnActualiser_Click(object sender, EventArgs e)
+        {
+            afficher();
+            clear();
         }
     }
 }
