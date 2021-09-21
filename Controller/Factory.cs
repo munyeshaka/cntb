@@ -424,5 +424,41 @@ namespace Controller
             return p;
 
         }//=======================END RECHERCHE RESIDENT==============
+
+
+        //=======================AFFICHER RECLAMER==============
+
+        public static ArrayList getReclamer()
+        {
+            ArrayList rappat = new ArrayList();
+            Reclamer rec = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Reclamer";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+               rec = new Reclamer();
+                rec.Idparcelle = reader["province_Parcelle"].ToString();
+               rec.IdRappatries = reader["id_Rappatries"].ToString();
+                rec.Rappatrie = reader["nom"].ToString();
+                rec.AreParcelle = reader["are"].ToString();
+                rec.NumeroParcelle = reader["numero"].ToString();
+
+
+
+                rappat.Add(rec);
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return rappat;
+
+        }//=======================Fin AFFICHER RECLAMER==============
+
+
     }
 }
