@@ -57,7 +57,5 @@ namespace Model
             get { return province; }
             set { province = value; }
         }
-
-
     }
 }

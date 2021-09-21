@@ -37,4 +37,22 @@ C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.csproj.CoreCompileInputs
 C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.dll
 C:\Users\Augustin\source\repos\cntb\View\obj\Debug\View.pdb
+<<<<<<< HEAD
+C:\Users\SMS\ProjetGit\cntb\View\obj\Debug\View.ucReclamer.resources
+=======
 C:\Users\Munyeshaka\project\BIU\C#\cntb\View\obj\Debug\View.ucReclamer.resources
+C:\Users\HP\Documents\cntb\cntb\View\bin\Debug\View.dll
+C:\Users\HP\Documents\cntb\cntb\View\bin\Debug\View.pdb
+C:\Users\HP\Documents\cntb\cntb\View\bin\Debug\Controller.dll
+C:\Users\HP\Documents\cntb\cntb\View\bin\Debug\Model.dll
+C:\Users\HP\Documents\cntb\cntb\View\bin\Debug\Controller.pdb
+C:\Users\HP\Documents\cntb\cntb\View\bin\Debug\Model.pdb
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.ucParcelle.resources
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.ucRappatries.resources
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.ucReclamer.resources
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.ucResident.resources
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.csproj.GenerateResource.Cache
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.dll
+C:\Users\HP\Documents\cntb\cntb\View\obj\Debug\View.pdb
+>>>>>>> 57fdc2c31fdae948ceee0996fdd360327c61e56f
