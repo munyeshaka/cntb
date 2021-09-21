@@ -164,6 +164,7 @@ namespace View
             this.Controls.Add(this.No);
             this.Name = "ucReclamer";
             this.Size = new System.Drawing.Size(900, 609);
+            this.Load += new System.EventHandler(this.ucReclamer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResident)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

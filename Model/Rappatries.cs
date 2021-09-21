@@ -51,5 +51,13 @@ namespace Model
             get { return dateRetour; }
             set { dateRetour = value; }
         }
+
+        public string nomComplet
+        {
+            get
+            {
+                return Nom + " " + Prenom;
+            }
+        }
     }
 }

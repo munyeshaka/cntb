@@ -8,9 +8,10 @@ namespace Model
 {
     public class Reclamer
     {
-        string parcelle, rappatrie;
+        string idparcelle, idRappatries,rappatrie,numeroParcelle,areParcelle;
+        Rappatries ra;
+        Parcelle pa;
 
-        //public string Parcelle { get => parcelle; set => parcelle = value; }
-        //public string Rappatrie { get => rappatrie; set => rappatrie = value; }
+        
     }
 }
