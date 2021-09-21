@@ -14,22 +14,12 @@ namespace Controller
         public static ArrayList listResident = new ArrayList();
         public static ArrayList listRappatries = new ArrayList();
 
-<<<<<<< HEAD
-//<<<<<<< HEAD
-        //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
-       // public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
 
-        //public static SqlConnection conn = new SqlConnection("Data Source=AUGUSTIN;Initial Catalog=cntb;Integrated Security=True");
+        public static SqlConnection conn = new SqlConnection("Data Source=AUGUSTIN;Initial Catalog=cntb;Integrated Security=True");
         //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
-        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
-//>>>>>>> 
-=======
-        //public static SqlConnection conn = new SqlConnection("Data Source=AUGUSTIN;Initial Catalog=cntb;Integrated Security=True");
-        //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
-        public static SqlConnection conn = new SqlConnection("Data Source=FYFO;Initial Catalog=cntb;Integrated Security=True");
+        //public static SqlConnection conn = new SqlConnection("Data Source=FYFO;Initial Catalog=cntb;Integrated Security=True");
         //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
 
->>>>>>> 57fdc2c31fdae948ceee0996fdd360327c61e56f
 
         //=======================AFFICHER Resident==============
 

@@ -57,5 +57,13 @@ namespace Model
             get { return province; }
             set { province = value; }
         }
+
+        public string provinceNumeroAre
+        {
+            get
+            {
+                return Province + " " + Numero + " " + Taille;
+            }
+        }
     }
 }

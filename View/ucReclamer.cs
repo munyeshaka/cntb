@@ -17,11 +17,14 @@ namespace View
         {
             InitializeComponent();
         }
-
+        
         private void ucReclamer_Load(object sender, EventArgs e)
         {
             comboBoxRappatrie.DataSource = Factory.getRappatries();
             comboBoxRappatrie.DisplayMember = "nomComplet";
+
+            comboBoxParcelle.DataSource = Factory.getParcelle();
+            comboBoxParcelle.DisplayMember = "provinceNumeroAre";
         }
     }
 }
