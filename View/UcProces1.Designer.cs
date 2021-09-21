@@ -44,6 +44,8 @@
             this.txtNomJ = new System.Windows.Forms.TextBox();
             this.txtPV = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.dtpProces = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProces)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,7 +146,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(88, 134);
+            this.label2.Location = new System.Drawing.Point(88, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 37;
@@ -161,32 +163,50 @@
             // 
             // txtNomJ
             // 
-            this.txtNomJ.Location = new System.Drawing.Point(196, 134);
+            this.txtNomJ.Location = new System.Drawing.Point(196, 125);
             this.txtNomJ.Name = "txtNomJ";
             this.txtNomJ.Size = new System.Drawing.Size(303, 20);
             this.txtNomJ.TabIndex = 50;
             // 
             // txtPV
             // 
-            this.txtPV.Location = new System.Drawing.Point(196, 170);
+            this.txtPV.Location = new System.Drawing.Point(196, 196);
             this.txtPV.Name = "txtPV";
-            this.txtPV.Size = new System.Drawing.Size(314, 76);
+            this.txtPV.Size = new System.Drawing.Size(314, 50);
             this.txtPV.TabIndex = 51;
             this.txtPV.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(91, 187);
+            this.label3.Location = new System.Drawing.Point(95, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 13);
             this.label3.TabIndex = 52;
             this.label3.Text = "PV";
             // 
+            // dtpProces
+            // 
+            this.dtpProces.Location = new System.Drawing.Point(196, 161);
+            this.dtpProces.Name = "dtpProces";
+            this.dtpProces.Size = new System.Drawing.Size(303, 20);
+            this.dtpProces.TabIndex = 53;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(91, 161);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Date ";
+            // 
             // UcProces1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dtpProces);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPV);
             this.Controls.Add(this.txtNomJ);
@@ -229,5 +249,7 @@
         private System.Windows.Forms.TextBox txtNomJ;
         private System.Windows.Forms.RichTextBox txtPV;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpProces;
+        private System.Windows.Forms.Label label4;
     }
 }
