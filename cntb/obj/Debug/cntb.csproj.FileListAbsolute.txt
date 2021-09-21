@@ -78,3 +78,6 @@ C:\Users\Augustin\Documents\Augustin\cntb\cntb\obj\Debug\cntb.csproj.CoreCompile
 C:\Users\Augustin\Documents\Augustin\cntb\cntb\obj\Debug\cntb.csproj.CopyComplete
 C:\Users\Augustin\Documents\Augustin\cntb\cntb\obj\Debug\cntb.exe
 C:\Users\Augustin\Documents\Augustin\cntb\cntb\obj\Debug\cntb.pdb
+C:\Users\van\cntb\cntb\cntb\bin\Debug\cntb.exe.config
+C:\Users\van\cntb\cntb\cntb\obj\Debug\cntb.exe
+C:\Users\van\cntb\cntb\cntb\obj\Debug\cntb.pdb
