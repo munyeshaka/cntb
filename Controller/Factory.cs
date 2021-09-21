@@ -15,7 +15,7 @@ namespace Controller
         public static ArrayList listRappatries = new ArrayList();
 
 
-        public static SqlConnection conn = new SqlConnection("Data Source=AUGUSTIN;Initial Catalog=cntb;Integrated Security=True");
+        public static SqlConnection conn = new SqlConnection(@"Data Source=NOBODY\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
         //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-UCVVLMH\\SQLEXPRESS;Initial Catalog=cntb;Integrated Security=True");
         //public static SqlConnection conn = new SqlConnection("Data Source=FYFO;Initial Catalog=cntb;Integrated Security=True");
         //public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-QQL0BU4\\SQLEXPRESS;Initial Catalog=CNTB;Integrated Security=True");
@@ -440,13 +440,13 @@ namespace Controller
             SqlDataReader reader = commande.ExecuteReader();
             while (reader.Read())
             {
-               rec = new Reclamer();
-                rec.Id= int.Parse(reader["id"].ToString());
-                rec.Idparcelle = reader["province_Parcelle"].ToString();
-               rec.IdRappatries = reader["id_Rappatries"].ToString();
-                rec.Rappatrie = reader["nom"].ToString();
-                rec.AreParcelle = reader["are"].ToString();
-                rec.NumeroParcelle = reader["numero"].ToString();
+               //rec = new Reclamer();
+                //rec.Id= int.Parse(reader["id"].ToString());
+                //rec.Idparcelle = reader["province_Parcelle"].ToString();
+               //rec.IdRappatries = reader["id_Rappatries"].ToString();
+                //rec.Rappatrie = reader["nom"].ToString();
+                //rec.AreParcelle = reader["are"].ToString();
+                //rec.NumeroParcelle = reader["numero"].ToString();
 
 
 
@@ -516,7 +516,7 @@ namespace Controller
             {
                 rec = new Reclamer();
 
-               rec.Id = int.Parse(reader["id"].ToString());
+               //rec.Id = int.Parse(reader["id"].ToString());
                 
 
                 par.Add(rec);
@@ -528,7 +528,112 @@ namespace Controller
 
         }//=======================END RECHERCHE RECLAMER==============
 
+        #region Proces
+        //=======================AFFICHER PROCES==============
 
+        public static ArrayList getProces()
+        {
+            ArrayList proceses = new ArrayList();
+            Proces proces = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Proces";
+            SqlDataReader reader = commande.ExecuteReader();
+            while (reader.Read())
+            {
+                proces = new Proces();
+                proces.Id = reader["id_Proces"].ToString();
+                proces.Province = reader["province_Parcelle"].ToString();
+                proces.Nom = reader["nomJuge_Proces"].ToString();
+                proces.Date = reader["date_Proces"].ToString();
+                proces.Pv = reader["pv_Proces"].ToString();
+
+                proces.Parcelle = new Parcelle();
+                proces.Parcelle.Province = reader["province_Parcelle"].ToString();
+
+
+
+                proceses.Add(proces);
+
+            }
+
+            reader.Close();
+            conn.Close();
+            return proceses;
+
+        }//=======================Fin AFFICHER PROCES==============
+
+
+        //=======================INSERER PROCES==============
+
+        public static int insertProces(Proces proces)
+        {
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "insert into dbo.Proces (id_Proces,date_Proces,nomJuge_Proces,pv_Proces,province_Parcelle)  values (@id,@date,@nom,@pv,@province)";
+
+            commande.Parameters.Add(new SqlParameter("@id", proces.Id));
+            commande.Parameters.Add(new SqlParameter("@date", proces.Date));
+            commande.Parameters.Add(new SqlParameter("@nom", proces.Nom));
+            commande.Parameters.Add(new SqlParameter("@pv", proces.Pv));
+            commande.Parameters.Add(new SqlParameter("@province", proces.Parcelle.Province));
+
+            int i = commande.ExecuteNonQuery();
+
+            return i;
+        }
+        //=======================Fin INSERER PROCES==============
+
+
+        //=======================SUPRRIMER PROCES==============
+
+        public static int deleteProces(string id)
+        {
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "delete from dbo.Proces where id_Proces = @id";
+            commande.Parameters.AddWithValue("@id", id);
+            int d = commande.ExecuteNonQuery();
+            return d;
+        }//=======================Fin SUPRRIMER PROCES==============
+
+
+        //=======================RECHERCHE RECLAMER==============
+
+        public static Proces getProcesById(string id)
+        {
+            ArrayList par = new ArrayList();
+            Proces proces = null;
+
+            if (conn.State != System.Data.ConnectionState.Open) conn.Open();
+            SqlCommand commande = new SqlCommand();
+            commande.Connection = conn;
+            commande.CommandText = "select * from dbo.Proces where id_Proces=@id";
+            commande.Parameters.Add(new SqlParameter("@id", id));
+            SqlDataReader reader = commande.ExecuteReader();
+
+            if (reader.Read())
+            {
+                proces = new Proces();
+
+                proces.Id = reader["id_Proces"].ToString();
+
+
+                par.Add(proces);
+            }
+
+            reader.Close();
+            conn.Close();
+            return proces;
+
+        }//=======================END RECHERCHE RECLAMER==============
+
+        #endregion
 
     }
 }
