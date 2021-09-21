@@ -43,7 +43,21 @@ namespace View
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             rec = new Reclamer();
-            rec.Pa = comboBoxParcelle.SelectedItem().;
+            rec.Pa = (Parcelle)comboBoxParcelle.SelectedItem;
+            rec.Ra = (Rappatries)comboBoxRappatrie.SelectedItem;
+
+            try
+            {
+                int k = Factory.insertReclamer(rec);
+                if (k != 0)
+                    MessageBox.Show("Case successful inserted...");
+                afficher();
+                //clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
