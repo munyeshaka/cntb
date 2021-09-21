@@ -25,3 +25,6 @@ C:\Users\Augustin\Documents\Augustin\cntb\Model\obj\Debug\Model.csproj.AssemblyR
 C:\Users\Augustin\Documents\Augustin\cntb\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\Augustin\Documents\Augustin\cntb\Model\obj\Debug\Model.dll
 C:\Users\Augustin\Documents\Augustin\cntb\Model\obj\Debug\Model.pdb
+C:\Users\van\cntb\cntb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\van\cntb\cntb\Model\obj\Debug\Model.dll
+C:\Users\van\cntb\cntb\Model\obj\Debug\Model.pdb

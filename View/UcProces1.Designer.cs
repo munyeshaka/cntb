@@ -125,6 +125,7 @@
             this.btnAjouter.TabIndex = 41;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // comboBoxParcelle
             // 
@@ -225,6 +226,7 @@
             this.Controls.Add(this.No);
             this.Name = "UcProces1";
             this.Size = new System.Drawing.Size(900, 609);
+            this.Load += new System.EventHandler(this.UcProces1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProces)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

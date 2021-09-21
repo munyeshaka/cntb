@@ -42,6 +42,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Parcelle.cs" />
     <Compile Include="Personne.cs" />
+    <Compile Include="Proces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rappatries.cs" />
     <Compile Include="Reclamer.cs" />

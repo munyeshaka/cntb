@@ -49,6 +49,12 @@
     <Compile Include="ucParcelle.Designer.cs">
       <DependentUpon>ucParcelle.cs</DependentUpon>
     </Compile>
+    <Compile Include="UcProces1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcProces1.Designer.cs">
+      <DependentUpon>UcProces1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucRappatries.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ucParcelle.resx">
       <DependentUpon>ucParcelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcProces1.resx">
+      <DependentUpon>UcProces1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucRappatries.resx">
       <DependentUpon>ucRappatries.cs</DependentUpon>

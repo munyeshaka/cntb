@@ -72,3 +72,12 @@ C:\Users\Augustin\Documents\Augustin\cntb\View\obj\Debug\View.csproj.CoreCompile
 C:\Users\Augustin\Documents\Augustin\cntb\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\Augustin\Documents\Augustin\cntb\View\obj\Debug\View.dll
 C:\Users\Augustin\Documents\Augustin\cntb\View\obj\Debug\View.pdb
+C:\Users\van\cntb\cntb\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+C:\Users\van\cntb\cntb\View\obj\Debug\View.ucParcelle.resources
+C:\Users\van\cntb\cntb\View\obj\Debug\View.UcProces1.resources
+C:\Users\van\cntb\cntb\View\obj\Debug\View.ucRappatries.resources
+C:\Users\van\cntb\cntb\View\obj\Debug\View.ucReclamer.resources
+C:\Users\van\cntb\cntb\View\obj\Debug\View.ucResident.resources
+C:\Users\van\cntb\cntb\View\obj\Debug\View.csproj.GenerateResource.Cache
+C:\Users\van\cntb\cntb\View\obj\Debug\View.dll
+C:\Users\van\cntb\cntb\View\obj\Debug\View.pdb

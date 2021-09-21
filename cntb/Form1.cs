@@ -50,5 +50,12 @@ namespace cntb
         {
 
         }
+
+        private void procesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UcProces1 proces = new UcProces1();
+            this.HomePanel.Controls.Clear();
+            this.HomePanel.Controls.Add(proces);
+        }
     }
 }

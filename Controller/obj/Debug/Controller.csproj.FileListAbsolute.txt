@@ -37,3 +37,6 @@ C:\Users\Augustin\Documents\Augustin\cntb\Controller\obj\Debug\Controller.csproj
 C:\Users\Augustin\Documents\Augustin\cntb\Controller\obj\Debug\Controller.csproj.CopyComplete
 C:\Users\Augustin\Documents\Augustin\cntb\Controller\obj\Debug\Controller.dll
 C:\Users\Augustin\Documents\Augustin\cntb\Controller\obj\Debug\Controller.pdb
+C:\Users\van\cntb\cntb\Controller\obj\Debug\Controller.csprojResolveAssemblyReference.cache
+C:\Users\van\cntb\cntb\Controller\obj\Debug\Controller.dll
+C:\Users\van\cntb\cntb\Controller\obj\Debug\Controller.pdb
